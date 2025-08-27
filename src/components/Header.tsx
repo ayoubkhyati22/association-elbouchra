@@ -39,13 +39,16 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <button 
+            onClick={() => handlePageChange('home')}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200"
+          >
             <img 
               src="/assets/logo-ass.png" 
               alt="Logo EL BOUCHRA" 
               className="w-10 h-10 object-contain"
             />
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
