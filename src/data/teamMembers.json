@@ -1,66 +1,114 @@
 [
   {
-    "id": "sarah-benali",
+    "id": "zakaria-el-foundy",
     "name": {
-      "fr": "Sarah Benali",
-      "ar": "سارة بنعلي"
+      "fr": "El FOUNDY Zakaria",
+      "ar": "الفندي زكرياء"
     },
     "role": {
-      "fr": "Présidente",
-      "ar": "الرئيسة"
+      "fr": "Président",
+      "ar": "الرئيس"
     },
     "image": "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg",
     "expertise": {
-      "fr": "Écologie urbaine",
-      "ar": "البيئة الحضرية"
+      "fr": "",
+      "ar": ""
     }
   },
   {
-    "id": "ahmed-ziani",
+    "id": "yousra-el-malki",
     "name": {
-      "fr": "Ahmed Ziani",
-      "ar": "أحمد زياني"
+      "fr": "EL MALKI Yousra",
+      "ar": "المالكي يسرى"
     },
     "role": {
       "fr": "Vice-Président",
-      "ar": "نائب الرئيس"
+      "ar": "نائبة الرئيس"
     },
     "image": "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg",
     "expertise": {
-      "fr": "Énergies renouvelables",
-      "ar": "الطاقات المتجددة"
+      "fr": "",
+      "ar": ""
     }
   },
   {
-    "id": "fatima-alami",
+    "id": "mostafa-el-foundy",
     "name": {
-      "fr": "Fatima Alami",
-      "ar": "فاطمة العلمي"
+      "fr": "EL FOUNDY Mostafa",
+      "ar": "الفندي مصطفى"
     },
     "role": {
-      "fr": "Secrétaire Générale",
-      "ar": "الكاتبة العامة"
+      "fr": "Secrétaire Général",
+      "ar": "الكاتب العام"
     },
     "image": "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg",
     "expertise": {
-      "fr": "Communication",
-      "ar": "التواصل"
+      "fr": "",
+      "ar": ""
     }
   },
   {
-    "id": "youssef-kadiri",
+    "id": "hicham-chahid",
     "name": {
-      "fr": "Youssef Kadiri",
-      "ar": "يوسف قادري"
+      "fr": "CHAHID Hicham",
+      "ar": "شاهد هشام"
     },
     "role": {
-      "fr": "Trésorier",
-      "ar": "أمين المال"
+      "fr": "Vice Secrétaire Général",
+      "ar": "نائب الكاتب العام"
     },
     "image": "https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg",
     "expertise": {
-      "fr": "Gestion de projets",
-      "ar": "إدارة المشاريع"
+      "fr": "",
+      "ar": ""
+    }
+  },
+  {
+    "id": "hajar-midany",
+    "name": {
+      "fr": "MIDANY Hajar",
+      "ar": "ميداني هجر"
+    },
+    "role": {
+      "fr": "Trésorier",
+      "ar": "أمينة المال"
+    },
+    "image": "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg",
+    "expertise": {
+      "fr": "",
+      "ar": ""
+    }
+  },
+  {
+    "id": "douaa-benkrit",
+    "name": {
+      "fr": "BENKRIT Douaa",
+      "ar": "بنكريت دعاء"
+    },
+    "role": {
+      "fr": "Vice Trésorier",
+      "ar": "نائبة أمينة المال"
+    },
+    "image": "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg",
+    "expertise": {
+      "fr": "",
+      "ar": ""
+    }
+  },
+  {
+    "id": "karim-hidila",
+    "name": {
+      "fr": "HIDILA Karim",
+      "ar": "هديلة كريم"
+    },
+    "role": {
+      "fr": "Conseiller",
+      "ar": "مستشار"
+    },
+    "image": "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg",
+    "expertise": {
+      "fr": "",
+      "ar": ""
     }
   }
 ]
