@@ -15,7 +15,7 @@ export default function HomePage({ onPageChange }: HomePageProps) {
   const { t, currentLanguage } = useLanguage();
 
   // Prendre seulement les 3 premiers membres pour la page d'accueil
-  const teamMembers = teamMembersData.slice(0, 7);
+  const teamMembers = teamMembersData.slice(0, 8);
 
   // Prendre seulement les 3 premiers événements pour la page d'accueil
   const upcomingEvents = eventsData.slice(0, 3).map(event => ({
