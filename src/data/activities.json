@@ -1,0 +1,58 @@
+[
+  {
+    "id": "reforestation",
+    "title": {
+      "fr": "Reforestation",
+      "ar": "إعادة التشجير"
+    },
+    "description": {
+      "fr": "Plantation d'arbres dans les zones urbaines et rurales pour lutter contre la déforestation",
+      "ar": "زراعة الأشجار في المناطق الحضرية والريفية لمحاربة إزالة الغابات"
+    },
+    "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg",
+    "icon": "Leaf",
+    "color": "green"
+  },
+  {
+    "id": "recyclage",
+    "title": {
+      "fr": "Recyclage",
+      "ar": "إعادة التدوير"
+    },
+    "description": {
+      "fr": "Programmes de collecte et recyclage des déchets avec sensibilisation communautaire",
+      "ar": "برامج جمع وإعادة تدوير النفايات مع التوعية المجتمعية"
+    },
+    "image": "https://images.pexels.com/photos/2990644/pexels-photo-2990644.jpeg",
+    "icon": "Recycle",
+    "color": "blue"
+  },
+  {
+    "id": "education",
+    "title": {
+      "fr": "Éducation Environnementale",
+      "ar": "التعليم البيئي"
+    },
+    "description": {
+      "fr": "Ateliers et formations dans les écoles et centres communautaires",
+      "ar": "ورش وتدريبات في المدارس والمراكز المجتمعية"
+    },
+    "image": "https://images.pexels.com/photos/8471947/pexels-photo-8471947.jpeg",
+    "icon": "GraduationCap",
+    "color": "purple"
+  },
+  {
+    "id": "partenariats",
+    "title": {
+      "fr": "Partenariats Locaux",
+      "ar": "الشراكات المحلية"
+    },
+    "description": {
+      "fr": "Collaboration avec les entreprises et institutions pour des projets durables",
+      "ar": "التعاون مع الشركات والمؤسسات للمشاريع المستدامة"
+    },
+    "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+    "icon": "Handshake",
+    "color": "orange"
+  }
+]

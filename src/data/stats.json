@@ -1,0 +1,38 @@
+[
+  {
+    "id": "members",
+    "number": "150+",
+    "label": {
+      "fr": "Membres actifs",
+      "ar": "عضو نشط"
+    },
+    "icon": "Users"
+  },
+  {
+    "id": "trees",
+    "number": "2,500+",
+    "label": {
+      "fr": "Arbres plantés",
+      "ar": "شجرة مزروعة"
+    },
+    "icon": "Leaf"
+  },
+  {
+    "id": "projects",
+    "number": "25+",
+    "label": {
+      "fr": "Projets réalisés",
+      "ar": "مشروع منجز"
+    },
+    "icon": "Award"
+  },
+  {
+    "id": "experience",
+    "number": "5",
+    "label": {
+      "fr": "Années d'expérience",
+      "ar": "سنوات من الخبرة"
+    },
+    "icon": "Star"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "participation",
+    "key": "membership.benefit1"
+  },
+  {
+    "id": "training",
+    "key": "membership.benefit2"
+  },
+  {
+    "id": "newsletter",
+    "key": "membership.benefit3"
+  },
+  {
+    "id": "discounts",
+    "key": "membership.benefit4"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "address",
+    "icon": "MapPin",
+    "title": "contact.info.address",
+    "value": "Hay Adil, Salé, Maroc",
+    "color": "text-red-600",
+    "bgColor": "bg-red-100"
+  },
+  {
+    "id": "email",
+    "icon": "Mail",
+    "title": "contact.info.email",
+    "value": "elbouchra.hayadil@gmail.com",
+    "color": "text-blue-600",
+    "bgColor": "bg-blue-100",
+    "href": "mailto:elbouchra.hayadil@gmail.com"
+  },
+  {
+    "id": "whatsapp",
+    "icon": "MessageCircle",
+    "title": "contact.info.whatsapp",
+    "value": "+212 6 61 23 45 67",
+    "color": "text-green-600",
+    "bgColor": "bg-green-100",
+    "href": "https://wa.me/212661234567"
+  }
+]

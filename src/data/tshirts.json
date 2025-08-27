@@ -1,0 +1,18 @@
+[
+  {
+    "id": "eco-blue",
+    "name": "tshirt.eco.name",
+    "price": 25,
+    "description": "tshirt.eco.description",
+    "image": "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg",
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  {
+    "id": "classic",
+    "name": "tshirt.classic.name",
+    "price": 30,
+    "description": "tshirt.classic.description",
+    "image": "https://images.pexels.com/photos/5710082/pexels-photo-5710082.jpeg",
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  }
+]

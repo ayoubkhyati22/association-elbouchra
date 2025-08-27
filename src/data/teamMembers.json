@@ -1,0 +1,66 @@
+[
+  {
+    "id": "sarah-benali",
+    "name": {
+      "fr": "Sarah Benali",
+      "ar": "سارة بنعلي"
+    },
+    "role": {
+      "fr": "Présidente",
+      "ar": "الرئيسة"
+    },
+    "image": "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg",
+    "expertise": {
+      "fr": "Écologie urbaine",
+      "ar": "البيئة الحضرية"
+    }
+  },
+  {
+    "id": "ahmed-ziani",
+    "name": {
+      "fr": "Ahmed Ziani",
+      "ar": "أحمد زياني"
+    },
+    "role": {
+      "fr": "Vice-Président",
+      "ar": "نائب الرئيس"
+    },
+    "image": "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg",
+    "expertise": {
+      "fr": "Énergies renouvelables",
+      "ar": "الطاقات المتجددة"
+    }
+  },
+  {
+    "id": "fatima-alami",
+    "name": {
+      "fr": "Fatima Alami",
+      "ar": "فاطمة العلمي"
+    },
+    "role": {
+      "fr": "Secrétaire Générale",
+      "ar": "الكاتبة العامة"
+    },
+    "image": "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg",
+    "expertise": {
+      "fr": "Communication",
+      "ar": "التواصل"
+    }
+  },
+  {
+    "id": "youssef-kadiri",
+    "name": {
+      "fr": "Youssef Kadiri",
+      "ar": "يوسف قادري"
+    },
+    "role": {
+      "fr": "Trésorier",
+      "ar": "أمين المال"
+    },
+    "image": "https://images.pexels.com/photos/3777931/pexels-photo-3777931.jpeg",
+    "expertise": {
+      "fr": "Gestion de projets",
+      "ar": "إدارة المشاريع"
+    }
+  }
+]

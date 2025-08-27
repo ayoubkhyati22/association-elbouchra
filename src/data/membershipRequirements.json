@@ -1,0 +1,22 @@
+[
+  {
+    "id": "form",
+    "fr": "Remplir le formulaire d'adhésion",
+    "ar": "ملأ طلب الإنخراط"
+  },
+  {
+    "id": "id-copies",
+    "fr": "Fournir 3 copies certifiées conformes de leur carte nationale d'identité",
+    "ar": "3 نسخ من بطاقة التعريف الوطنية مصادق عليها"
+  },
+  {
+    "id": "photos",
+    "fr": "2 photos d'identité",
+    "ar": "2 صور شمسية"
+  },
+  {
+    "id": "fee",
+    "fr": "S'acquitter de la cotisation annuelle de 200 dirhams",
+    "ar": "أداء مبلغ الإنخراط المحدد في 200 درهم سنويا"
+  }
+]

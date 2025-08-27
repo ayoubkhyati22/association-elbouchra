@@ -1,0 +1,29 @@
+[
+  {
+    "id": "active-members",
+    "number": "150+",
+    "label": {
+      "fr": "Membres actifs",
+      "ar": "عضو نشط"
+    },
+    "icon": "Users"
+  },
+  {
+    "id": "completed-projects",
+    "number": "25+",
+    "label": {
+      "fr": "Projets réalisés",
+      "ar": "مشروع منجز"
+    },
+    "icon": "Award"
+  },
+  {
+    "id": "years-experience",
+    "number": "5",
+    "label": {
+      "fr": "Années d'expérience",
+      "ar": "سنوات من الخبرة"
+    },
+    "icon": "Star"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "slide-1",
+    "image": "/assets/slide-1.jpg",
+    "alt": "Environmental volunteers planting trees"
+  },
+  {
+    "id": "slide-2",
+    "image": "/assets/slide-2.jpg",
+    "alt": "Community clean-up activity"
+  },
+  {
+    "id": "slide-3",
+    "image": "/assets/slide-3.jpg",
+    "alt": "Nature preservation"
+  },
+  {
+    "id": "slide-4",
+    "image": "/assets/slide-4.jpg",
+    "alt": "Sustainable development"
+  },
+  {
+    "id": "slide-5",
+    "image": "/assets/slide-5.jpg",
+    "alt": "Association activities"
+  }
+]

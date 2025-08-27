@@ -1,0 +1,70 @@
+[
+  {
+    "id": "plantation-arbres",
+    "title": {
+      "fr": "Plantation d'arbres communautaire",
+      "ar": "زراعة الأشجار المجتمعية"
+    },
+    "date": "2025-03-15",
+    "time": "09:00",
+    "location": {
+      "fr": "Parc Municipal",
+      "ar": "الحديقة البلدية"
+    },
+    "description": {
+      "fr": "Journée de plantation avec les familles locales",
+      "ar": "يوم زراعة مع العائلات المحلية"
+    }
+  },
+  {
+    "id": "nettoyage-plages",
+    "title": {
+      "fr": "Nettoyage des plages",
+      "ar": "تنظيف الشواطئ"
+    },
+    "date": "2025-04-22",
+    "time": "08:00",
+    "location": {
+      "fr": "Plage de Rabat",
+      "ar": "شاطئ الرباط"
+    },
+    "description": {
+      "fr": "Action de nettoyage pour la Journée de la Terre",
+      "ar": "عمل تنظيف ليوم الأرض"
+    }
+  },
+  {
+    "id": "formation-eco",
+    "title": {
+      "fr": "Formation éco-responsable",
+      "ar": "تدريب صديق للبيئة"
+    },
+    "date": "2025-05-10",
+    "time": "14:00",
+    "location": {
+      "fr": "Centre Culturel",
+      "ar": "المركز الثقافي"
+    },
+    "description": {
+      "fr": "Atelier sur les pratiques durables au quotidien",
+      "ar": "ورشة حول الممارسات المستدامة اليومية"
+    }
+  },
+  {
+    "id": "marche-bio",
+    "title": {
+      "fr": "Marché bio solidaire",
+      "ar": "السوق البيولوجي التضامني"
+    },
+    "date": "2025-06-05",
+    "time": "10:00",
+    "location": {
+      "fr": "Place Centrale",
+      "ar": "الساحة المركزية"
+    },
+    "description": {
+      "fr": "Marché des producteurs locaux et biologiques",
+      "ar": "سوق المنتجين المحليين والبيولوجيين"
+    }
+  }
+]
