@@ -111,4 +111,20 @@
       "ar": ""
     }
   }
+    {
+    "id": "Hicham-belmeki",
+    "name": {
+      "fr": "BELMEKKI HICHAM",
+      "ar": "هديلة كريم"
+    },
+    "role": {
+      "fr": "Conseiller",
+      "ar": "مستشار"
+    },
+    "image": "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg",
+    "expertise": {
+      "fr": "",
+      "ar": ""
+    }
+  }
 ]
