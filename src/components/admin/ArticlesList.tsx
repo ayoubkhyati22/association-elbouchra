@@ -95,7 +95,7 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
                   <div className="flex-shrink-0">
                     <img
                       src={article.featuredImage}
-                      alt={article.title?.fr || 'Article'}
+                      alt={article.title || 'Article'}
                       className="w-32 h-24 object-cover rounded-lg"
                     />
                   </div>
@@ -105,7 +105,7 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-semibold text-blue-900 truncate">
-                      {article.title?.fr || 'Titre non défini'}
+                      {article.title || 'Titre non défini'}
                     </h3>
                     <div className="flex space-x-2 ml-4">
                       <button
@@ -125,17 +125,14 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
                     </div>
                   </div>
 
-                  {article.title?.ar && (
-                    <h4 className="text-lg font-medium text-gray-700 mb-2" dir="rtl">
-                      {article.title.ar}
-                    </h4>
-                  )}
-
-                  {article.excerpt?.fr && (
-                    <p className="text-gray-600 mb-3">
-                      {truncateText(article.excerpt.fr, 150)}
-                    </p>
-                  )}
+                  <div className="text-gray-600 mb-3">
+                    <div 
+                      className="prose prose-sm max-w-none"
+                      dangerouslySetInnerHTML={{ 
+                        __html: truncateText(article.content?.replace(/<[^>]*>/g, '') || '', 150)
+                      }}
+                    />
+                  </div>
 
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center space-x-1">

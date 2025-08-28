@@ -52,7 +52,7 @@ export default function ArticlesPage() {
   };
 
   const getArticleContent = (article: any, field: string) => {
-    return article[field]?.[currentLanguage.code] || article[field]?.fr || '';
+    return article[field] || '';
   };
 
   if (selectedArticle) {
@@ -68,26 +68,12 @@ export default function ArticlesPage() {
           </button>
 
           <article className="max-w-4xl mx-auto">
-            {selectedArticle.featuredImage && (
-              <img
-                src={selectedArticle.featuredImage}
-                alt={getArticleContent(selectedArticle, 'title')}
-                className="w-full h-64 md:h-96 object-cover rounded-lg mb-8"
-              />
-            )}
-
             <Card className="p-8">
               <header className="mb-8">
                 <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
                   {getArticleContent(selectedArticle, 'title')}
                 </h1>
                 
-                {getArticleContent(selectedArticle, 'excerpt') && (
-                  <p className="text-xl text-gray-600 mb-6 italic">
-                    {getArticleContent(selectedArticle, 'excerpt')}
-                  </p>
-                )}
-
                 <div className="flex items-center space-x-4 text-sm text-gray-500 border-b border-gray-200 pb-6">
                   <div className="flex items-center space-x-1">
                     <Calendar size={16} />
@@ -162,26 +148,14 @@ export default function ArticlesPage() {
                 className="overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
                 onClick={() => setSelectedArticle(article)}
               >
-                {article.featuredImage && (
-                  <div className="h-48 overflow-hidden">
-                    <img
-                      src={article.featuredImage}
-                      alt={getArticleContent(article, 'title')}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-                
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-blue-900 mb-3 line-clamp-2">
                     {getArticleContent(article, 'title')}
                   </h3>
                   
-                  {getArticleContent(article, 'excerpt') && (
-                    <p className="text-gray-600 mb-4 line-clamp-3">
-                      {truncateText(getArticleContent(article, 'excerpt'), 120)}
-                    </p>
-                  )}
+                  <div className="text-gray-600 mb-4 line-clamp-3">
+                    {truncateText(getArticleContent(article, 'content')?.replace(/<[^>]*>/g, '') || '', 120)}
+                  </div>
                   
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
