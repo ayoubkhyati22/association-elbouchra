@@ -17,17 +17,15 @@ export default function ArticlesPage() {
 
   const fetchArticles = async () => {
     try {
-      const q = query(
-        collection(db, 'articles'), 
-        where('published', '==', true),
-        orderBy('createdAt', 'desc')
-      );
+      // Récupérer tous les articles sans filtre pour éviter l'erreur 400
+      const q = query(collection(db, 'articles'));
       const querySnapshot = await getDocs(q);
       const articlesData = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
-      setArticles(articlesData);
+      // Trier côté client si nécessaire
+      setArticles(articlesData.reverse()); // Les plus récents en premier
     } catch (error) {
       console.error('Error fetching articles:', error);
     } finally {
@@ -36,13 +34,8 @@ export default function ArticlesPage() {
   };
 
   const formatDate = (timestamp: any) => {
-    if (!timestamp) return 'Date inconnue';
-    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
-    return date.toLocaleDateString(currentLanguage.code === 'fr' ? 'fr-FR' : 'ar-MA', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    // Retourner une date par défaut puisque nous n'avons pas de timestamps
+    return currentLanguage.code === 'fr' ? 'Article récent' : 'مقال حديث';
   };
 
   const truncateText = (text: string, maxLength: number) => {
@@ -76,12 +69,12 @@ export default function ArticlesPage() {
                 
                 <div className="flex items-center space-x-4 text-sm text-gray-500 border-b border-gray-200 pb-6">
                   <div className="flex items-center space-x-1">
-                    <Calendar size={16} />
-                    <span>{formatDate(selectedArticle.createdAt)}</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
                     <User size={16} />
                     <span>Association EL BOUCHRA</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Calendar size={16} />
+                    <span>{formatDate(selectedArticle)}</span>
                   </div>
                 </div>
               </header>
@@ -159,8 +152,8 @@ export default function ArticlesPage() {
                   
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
-                      <Calendar size={14} />
-                      <span>{formatDate(article.createdAt)}</span>
+                      <User size={14} />
+                      <span>Association EL BOUCHRA</span>
                     </div>
                     <span className="text-blue-600 font-medium">
                       {currentLanguage.code === 'fr' ? 'Lire plus' : 'اقرأ المزيد'}

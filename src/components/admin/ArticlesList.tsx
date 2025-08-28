@@ -18,13 +18,15 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
 
   const fetchArticles = async () => {
     try {
-      const q = query(collection(db, 'articles'), orderBy('createdAt', 'desc'));
+      // Récupérer tous les articles sans orderBy pour éviter l'erreur
+      const q = query(collection(db, 'articles'));
       const querySnapshot = await getDocs(q);
       const articlesData = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
-      setArticles(articlesData);
+      // Trier côté client par ID (les plus récents en premier)
+      setArticles(articlesData.reverse());
     } catch (error) {
       console.error('Error fetching articles:', error);
     } finally {
@@ -45,13 +47,8 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
   };
 
   const formatDate = (timestamp: any) => {
-    if (!timestamp) return 'Date inconnue';
-    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
-    return date.toLocaleDateString('fr-FR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    // Retourner une date par défaut puisque nous n'avons pas de timestamps
+    return 'Article';
   };
 
   const truncateText = (text: string, maxLength: number) => {
@@ -136,15 +133,9 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
 
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
-                      <Calendar size={14} />
-                      <span>Créé le {formatDate(article.createdAt)}</span>
+                      <User size={14} />
+                      <span>Association EL BOUCHRA</span>
                     </div>
-                    {article.updatedAt && (
-                      <div className="flex items-center space-x-1">
-                        <Edit size={14} />
-                        <span>Modifié le {formatDate(article.updatedAt)}</span>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>

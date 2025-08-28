@@ -54,9 +54,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
     try {
       const articleData = {
         title: title,
-        content: content,
-        updatedAt: serverTimestamp(),
-        published: true
+        content: content
       };
 
       if (article?.id) {
@@ -64,10 +62,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
         await updateDoc(doc(db, 'articles', article.id), articleData);
       } else {
         // Create new article
-        await addDoc(collection(db, 'articles'), {
-          ...articleData,
-          createdAt: serverTimestamp()
-        });
+        await addDoc(collection(db, 'articles'), articleData);
       }
 
       onSave();
