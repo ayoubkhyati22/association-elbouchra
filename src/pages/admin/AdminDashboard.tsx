@@ -218,17 +218,16 @@ export default function AdminDashboard() {
                   ? 'border-blue-500 text-blue-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }
-            <h1 className="text-xl font-bold text-blue-900">{t('admin.header.administration')}</h1>
             >
               {t('admin.nav.dashboard')}
             </button>
             <button
+              onClick={() => setCurrentView('articles')}
               {t('admin.header.connected-as')}: {currentUser?.email}
               className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors duration-200 ${
                 currentView === 'articles'
                   ? 'border-blue-500 text-blue-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
-              }`}
             >
               {t('admin.nav.articles')}
             </button>
