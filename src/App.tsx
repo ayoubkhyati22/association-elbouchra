@@ -14,6 +14,7 @@ import IdentificationPage from './pages/IdentificationPage';
 import MembersPage from './pages/MembersPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import ArticlesPage from './pages/ArticlesPage';
+import ArticleDetailPage from './pages/ArticleDetailPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 
 function AppContent() {
@@ -22,7 +23,10 @@ function AppContent() {
   useEffect(() => {
     // Vérifier l'URL au chargement
     const path = window.location.pathname;
-    if (path === '/admin' || path === '/administration') {
+    if (path.startsWith('/article/')) {
+      const articleId = path.split('/')[2];
+      setCurrentPage(`article-${articleId}`);
+    } else if (path === '/admin' || path === '/administration') {
       setCurrentPage('admin');
     }
   }, []);
@@ -30,7 +34,10 @@ function AppContent() {
   // Fonction pour changer de page et mettre à jour l'URL
   const handlePageChange = (page: string) => {
     setCurrentPage(page);
-    if (page === 'admin') {
+    if (page.startsWith('article-')) {
+      const articleId = page.replace('article-', '');
+      window.history.pushState({}, '', `/article/${articleId}`);
+    } else if (page === 'admin') {
       window.history.pushState({}, '', '/admin');
     } else {
       window.history.pushState({}, '', '/');
@@ -57,6 +64,44 @@ function AppContent() {
         return <MembersPage onPageChange={handlePageChange} />;
       case 'activities':
         return <ActivitiesPage />;
+      case 'admin':
+        return (
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
+        );
+      default:
+        if (currentPage.startsWith('article-')) {
+          const articleId = currentPage.replace('article-', '');
+          return <ArticleDetailPage articleId={articleId} onBack={() => handlePageChange('articles')} />;
+        }
+        return <HomePage onPageChange={handlePageChange} />;
+    }
+  };
+
+  // Ne pas afficher Header/Footer pour les pages d'articles individuelles
+  const isArticleDetailPage = currentPage.startsWith('article-');
+
+  return (
+    <div className="min-h-screen">
+      {!isArticleDetailPage && <Header currentPage={currentPage} onPageChange={handlePageChange} />}
+      <main>
+        {renderPage()}
+      </main>
+      {!isArticleDetailPage && <Footer onPageChange={handlePageChange} />}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </AuthProvider>
+  );
+}
       case 'admin':
         return (
           <AdminRoute>
