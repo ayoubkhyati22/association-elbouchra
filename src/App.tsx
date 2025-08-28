@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
 import AdminRoute from './components/AdminRoute';
@@ -18,10 +19,28 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
 
+  useEffect(() => {
+    // Vérifier l'URL au chargement
+    const path = window.location.pathname;
+    if (path === '/admin' || path === '/administration') {
+      setCurrentPage('admin');
+    }
+  }, []);
+
+  // Fonction pour changer de page et mettre à jour l'URL
+  const handlePageChange = (page: string) => {
+    setCurrentPage(page);
+    if (page === 'admin') {
+      window.history.pushState({}, '', '/admin');
+    } else {
+      window.history.pushState({}, '', '/');
+    }
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <HomePage onPageChange={setCurrentPage} />;
+        return <HomePage onPageChange={handlePageChange} />;
       case 'articles':
         return <ArticlesPage />;
       case 'shop':
@@ -35,7 +54,7 @@ function AppContent() {
       case 'identification':
         return <IdentificationPage />;
       case 'members':
-        return <MembersPage onPageChange={setCurrentPage} />;
+        return <MembersPage onPageChange={handlePageChange} />;
       case 'activities':
         return <ActivitiesPage />;
       case 'admin':
@@ -45,17 +64,17 @@ function AppContent() {
           </AdminRoute>
         );
       default:
-        return <HomePage />;
+        return <HomePage onPageChange={handlePageChange} />;
     }
   };
 
   return (
     <div className="min-h-screen">
-      <Header currentPage={currentPage} onPageChange={setCurrentPage} />
+      <Header currentPage={currentPage} onPageChange={handlePageChange} />
       <main>
         {renderPage()}
       </main>
-      <Footer onPageChange={setCurrentPage} />
+      <Footer onPageChange={handlePageChange} />
     </div>
   );
 }
