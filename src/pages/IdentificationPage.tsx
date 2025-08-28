@@ -80,39 +80,6 @@ export default function IdentificationPage() {
             </div>
           </Card>
 
-          {/* Histoire */}
-          <Card className="p-8">
-            <h2 className="text-2xl font-bold text-blue-900 mb-6">{t('identification.history.title')}</h2>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">1</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-blue-900">{t('identification.history.foundation.title')}</h3>
-                  <p className="text-gray-700">{t('identification.history.foundation.text')}</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">2</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-blue-900">{t('identification.history.expansion.title')}</h3>
-                  <p className="text-gray-700">{t('identification.history.expansion.text')}</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">3</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-blue-900">{t('identification.history.innovation.title')}</h3>
-                  <p className="text-gray-700">{t('identification.history.innovation.text')}</p>
-                </div>
-              </div>
-            </div>
-          </Card>
         </div>
       </div>
     </div>

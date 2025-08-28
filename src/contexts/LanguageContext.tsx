@@ -109,13 +109,6 @@ const translations = {
     'identification.values.innovation.text': 'Solutions créatives pour un avenir durable',
     'identification.values.transparency.title': 'Transparence',
     'identification.values.transparency.text': 'Communication ouverte et responsable',
-    'identification.history.title': 'Notre Histoire',
-    'identification.history.foundation.title': '2020 - Fondation',
-    'identification.history.foundation.text': 'Création de l\'association par un groupe d\'écologistes passionnés',
-    'identification.history.expansion.title': '2021-2023 - Expansion',
-    'identification.history.expansion.text': 'Développement de nos programmes et partenariats locaux',
-    'identification.history.innovation.title': '2024+ - Innovation',
-    'identification.history.innovation.text': 'Lancement de nouveaux projets technologiques et durables',
 
     // Members page
     'members.title': 'Nos Membres',
@@ -361,13 +354,6 @@ Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
     'identification.values.innovation.text': 'حلول إبداعية لمستقبل مستدام',
     'identification.values.transparency.title': 'الشفافية',
     'identification.values.transparency.text': 'تواصل مفتوح ومسؤول',
-    'identification.history.title': 'تاريخنا',
-    'identification.history.foundation.title': '2020 - التأسيس',
-    'identification.history.foundation.text': 'إنشاء الجمعية من قبل مجموعة من علماء البيئة المتحمسين',
-    'identification.history.expansion.title': '2021-2023 - التوسع',
-    'identification.history.expansion.text': 'تطوير برامجنا وشراكاتنا المحلية',
-    'identification.history.innovation.title': '2024+ - الابتكار',
-    'identification.history.innovation.text': 'إطلاق مشاريع تكنولوجية ومستدامة جديدة',
 
     // Members page
     'members.title': 'أعضاؤنا',
