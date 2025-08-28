@@ -53,6 +53,42 @@ export default function HomePage({ onPageChange }: HomePageProps) {
         <ImageSlider />
       </section>
 
+      {/* President Message Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* President Message Card */}
+          <Card className="p-8 flex flex-col justify-center min-h-[400px]">
+            <h2 className="text-3xl font-bold text-blue-900 mb-6">
+              {t('home.president.title')}
+            </h2>
+            <div className="flex-1 flex flex-col justify-center">
+              <p className="text-gray-700 leading-relaxed mb-6 text-justify">
+                {t('home.president.message')}
+              </p>
+              <div className="border-t border-gray-200 pt-4">
+                <p className="font-semibold text-blue-900">
+                  {t('home.president.name')}
+                </p>
+                <p className="text-blue-600 text-sm">
+                  {t('home.president.position')}
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* President Image Card */}
+          <Card className="overflow-hidden min-h-[400px]">
+            <div className="h-full">
+              <img
+                src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg"
+                alt={t('home.president.name')}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </Card>
+        </div>
+      </section>
+
       {/* Mission Section */}
       <section className="container mx-auto px-4 py-16">
         <Card className="p-8 text-center max-w-4xl mx-auto">

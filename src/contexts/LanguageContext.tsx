@@ -138,6 +138,12 @@ const translations = {
     'home.impact.title': 'Notre Impact',
     'home.impact.subtitle': 'Des chiffres qui témoignent de notre engagement',
 
+    // President message
+    'home.president.title': 'Mot du Président',
+    'home.president.message': 'Chers membres et amis de l\'association EL BOUCHRA, c\'est avec un immense plaisir que je vous accueille sur notre site web. Depuis notre création, nous nous sommes engagés à promouvoir le développement durable et à protéger notre environnement. Chaque action que nous menons, chaque projet que nous réalisons, contribue à construire un avenir plus vert pour nos enfants et les générations futures. Ensemble, nous pouvons faire la différence et créer un impact positif durable dans notre communauté.',
+    'home.president.name': 'El FOUNDY Zakaria',
+    'home.president.position': 'Président de l\'Association EL BOUCHRA',
+
     // Footer additional
     'footer.description': 'Association pour le Développement Durable',
   },
@@ -265,6 +271,12 @@ const translations = {
     'home.events.button': 'عرض البرنامج الكامل',
     'home.impact.title': 'تأثيرنا',
     'home.impact.subtitle': 'أرقام تشهد على التزامنا',
+
+    // President message
+    'home.president.title': 'كلمة الرئيس',
+    'home.president.message': 'أعزائي أعضاء وأصدقاء جمعية البشرى، يسعدني أن أرحب بكم في موقعنا الإلكتروني. منذ تأسيسنا، التزمنا بتعزيز التنمية المستدامة وحماية بيئتنا. كل عمل نقوم به، كل مشروع ننجزه، يساهم في بناء مستقبل أكثر خضرة لأطفالنا والأجيال القادمة. معاً، يمكننا أن نحدث الفرق وننشئ تأثيراً إيجابياً دائماً في مجتمعنا.',
+    'home.president.name': 'الفندي زكرياء',
+    'home.president.position': 'رئيس جمعية البشرى',
 
     // Footer additional
     'footer.description': 'جمعية للتنمية المستدامة',
