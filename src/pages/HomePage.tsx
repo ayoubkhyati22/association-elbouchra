@@ -278,7 +278,6 @@ export default function HomePage({ onPageChange }: HomePageProps) {
             const getIconComponent = (iconName: string) => {
               switch (iconName) {
                 case 'Users': return Users;
-                case 'Leaf': return Leaf;
                 case 'Award': return Award;
                 case 'Star': return Star;
                 default: return Users;
