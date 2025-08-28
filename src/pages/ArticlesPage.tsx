@@ -55,8 +55,21 @@ export default function ArticlesPage() {
   };
 
   const truncateText = (text: string, maxLength: number) => {
-    if (!text) return text;
-    return text.substring(0, maxLength) + '...';
+    if (!text) return '';
+    
+    // Nettoyer le texte HTML
+    const cleanText = text
+      .replace(/<[^>]*>/g, '') // Supprimer les balises HTML
+      .replace(/&nbsp;/g, ' ') // Remplacer les espaces insécables
+      .replace(/&amp;/g, '&') // Décoder les entités HTML
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/\s+/g, ' ') // Remplacer les espaces multiples par un seul
+      .trim();
+    
+    if (cleanText.length <= maxLength) return cleanText;
+    return cleanText.substring(0, maxLength) + '...';
   };
 
   const handleArticleClick = (articleId: string) => {
@@ -178,7 +191,17 @@ export default function ArticlesPage() {
                   </h3>
                   
                   <div className="text-gray-600 mb-4 line-clamp-3">
-                    {article.excerpt || truncateText(getArticleContent(article, 'content')?.replace(/<[^>]*>/g, '') || '', 120)}
+                    {article.excerpt || truncateText(
+                      getArticleContent(article, 'content')
+                        ?.replace(/<[^>]*>/g, '') // Supprimer les balises HTML
+                        ?.replace(/&nbsp;/g, ' ') // Remplacer les espaces insécables
+                        ?.replace(/&amp;/g, '&') // Décoder les entités HTML
+                        ?.replace(/&lt;/g, '<')
+                        ?.replace(/&gt;/g, '>')
+                        ?.replace(/&quot;/g, '"')
+                        ?.trim() || '', 
+                      150
+                    )}
                   </div>
                   
                   <div className="flex items-center justify-between text-sm">
