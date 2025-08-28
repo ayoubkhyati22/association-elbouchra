@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Edit, Trash2, Eye, Calendar, User, Plus } from 'lucide-react';
+import { Edit, Trash2, Eye, Calendar, User, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { collection, getDocs, deleteDoc, doc, orderBy, query } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import Card from '../Card';
@@ -14,11 +14,23 @@ interface ArticlesListProps {
 
 export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
   const [articles, setArticles] = useState<any[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  
+  const articlesPerPage = 6;
+  const totalPages = Math.ceil(articles.length / articlesPerPage);
+  const startIndex = (currentPage - 1) * articlesPerPage;
+  const endIndex = startIndex + articlesPerPage;
+  const currentArticles = articles.slice(startIndex, endIndex);
 
   useEffect(() => {
     fetchArticles();
   }, []);
+
+  useEffect(() => {
+    // Reset to first page when articles change
+    setCurrentPage(1);
+  }, [articles.length]);
 
   const fetchArticles = async () => {
     try {
@@ -70,6 +82,91 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
     return new Date().toLocaleDateString('fr-FR');
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderPagination = () => {
+    if (totalPages <= 1) return null;
+
+    const pages = [];
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    return (
+      <div className="flex justify-center items-center space-x-2 mt-8">
+        {/* Previous button */}
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+        >
+          <ChevronLeft size={16} />
+          <span>Précédent</span>
+        </button>
+
+        {/* Page numbers */}
+        {startPage > 1 && (
+          <>
+            <button
+              onClick={() => handlePageChange(1)}
+              className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200"
+            >
+              1
+            </button>
+            {startPage > 2 && (
+              <span className="px-2 py-2 text-gray-400">...</span>
+            )}
+          </>
+        )}
+
+        {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map((page) => (
+          <button
+            key={page}
+            onClick={() => handlePageChange(page)}
+            className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+              currentPage === page
+                ? 'text-white bg-blue-600 border border-blue-600'
+                : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 hover:text-gray-700'
+            }`}
+          >
+            {page}
+          </button>
+        ))}
+
+        {endPage < totalPages && (
+          <>
+            {endPage < totalPages - 1 && (
+              <span className="px-2 py-2 text-gray-400">...</span>
+            )}
+            <button
+              onClick={() => handlePageChange(totalPages)}
+              className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200"
+            >
+              {totalPages}
+            </button>
+          </>
+        )}
+
+        {/* Next button */}
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+        >
+          <span>Suivant</span>
+          <ChevronRight size={16} />
+        </button>
+      </div>
+    );
+  };
+
   const truncateText = (text: string, maxLength: number) => {
     if (!text) return '';
     if (text.length <= maxLength) return text;
@@ -98,8 +195,11 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
               <span>Nouvel Article</span>
             </button>
           )}
-          <div className="text-sm text-gray-600">
-            {articles.length} article{articles.length !== 1 ? 's' : ''}
+          <div className="flex items-center space-x-4 text-sm text-gray-600">
+            <span>{articles.length} article{articles.length !== 1 ? 's' : ''}</span>
+            {totalPages > 1 && (
+              <span>Page {currentPage} sur {totalPages}</span>
+            )}
           </div>
         </div>
       </div>
@@ -114,7 +214,7 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
         </Card>
       ) : (
         <div className="grid gap-6">
-          {articles.map((article) => (
+          {currentArticles.map((article) => (
             <Card key={article.id} className="p-6">
               <div className="flex gap-6">
                 {/* Image */}
@@ -171,7 +271,7 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
                       <User size={14} />
-                      <span>{article.createdBy || 'Association EL BOUCHRA HAY ADIL'}</span>
+                      <span>{article.createdBy || 'Association EL BOUCHRA HAY ADIL'}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar size={14} />
@@ -182,6 +282,16 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
               </div>
             </Card>
           ))}
+        </div>
+      )}
+      
+      {/* Pagination */}
+      {renderPagination()}
+      
+      {/* Articles count info */}
+      {articles.length > 0 && totalPages > 1 && (
+        <div className="text-center mt-6 text-sm text-gray-500">
+          Affichage de {startIndex + 1}-{Math.min(endIndex, articles.length)} sur {articles.length} articles
         </div>
       )}
     </div>

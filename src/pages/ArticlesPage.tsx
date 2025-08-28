@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, User, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Calendar, User, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { collection, getDocs, orderBy, query, where } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -7,13 +7,25 @@ import Card from '../components/Card';
 
 export default function ArticlesPage() {
   const [articles, setArticles] = useState<any[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [selectedArticle, setSelectedArticle] = useState<any>(null);
   const { currentLanguage, t } = useLanguage();
+  
+  const articlesPerPage = 6;
+  const totalPages = Math.ceil(articles.length / articlesPerPage);
+  const startIndex = (currentPage - 1) * articlesPerPage;
+  const endIndex = startIndex + articlesPerPage;
+  const currentArticles = articles.slice(startIndex, endIndex);
 
   useEffect(() => {
     fetchArticles();
   }, []);
+
+  useEffect(() => {
+    // Reset to first page when articles change
+    setCurrentPage(1);
+  }, [articles.length]);
 
   const fetchArticles = async () => {
     try {
@@ -75,6 +87,91 @@ export default function ArticlesPage() {
   const handleArticleClick = (articleId: string) => {
     // Ouvrir dans un nouvel onglet
     window.open(`/article/${articleId}`, '_blank');
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderPagination = () => {
+    if (totalPages <= 1) return null;
+
+    const pages = [];
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    return (
+      <div className="flex justify-center items-center space-x-2 mt-12">
+        {/* Previous button */}
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+        >
+          <ChevronLeft size={16} />
+          <span>{currentLanguage.code === 'fr' ? 'Précédent' : 'السابق'}</span>
+        </button>
+
+        {/* Page numbers */}
+        {startPage > 1 && (
+          <>
+            <button
+              onClick={() => handlePageChange(1)}
+              className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200"
+            >
+              1
+            </button>
+            {startPage > 2 && (
+              <span className="px-2 py-2 text-gray-400">...</span>
+            )}
+          </>
+        )}
+
+        {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map((page) => (
+          <button
+            key={page}
+            onClick={() => handlePageChange(page)}
+            className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+              currentPage === page
+                ? 'text-white bg-blue-600 border border-blue-600'
+                : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 hover:text-gray-700'
+            }`}
+          >
+            {page}
+          </button>
+        ))}
+
+        {endPage < totalPages && (
+          <>
+            {endPage < totalPages - 1 && (
+              <span className="px-2 py-2 text-gray-400">...</span>
+            )}
+            <button
+              onClick={() => handlePageChange(totalPages)}
+              className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200"
+            >
+              {totalPages}
+            </button>
+          </>
+        )}
+
+        {/* Next button */}
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+        >
+          <span>{currentLanguage.code === 'fr' ? 'Suivant' : 'التالي'}</span>
+          <ChevronRight size={16} />
+        </button>
+      </div>
+    );
   };
 
   const getArticleContent = (article: any, field: string) => {
@@ -170,7 +267,7 @@ export default function ArticlesPage() {
           </Card>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {articles.map((article) => (
+            {currentArticles.map((article) => (
               <Card 
                 key={article.id} 
                 className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -190,19 +287,48 @@ export default function ArticlesPage() {
                     {getArticleContent(article, 'title')}
                   </h3>
                   
-                  <div className="text-gray-600 mb-4 line-clamp-3">
-                    {article.excerpt || truncateText(
-                      getArticleContent(article, 'content')
-                        ?.replace(/<[^>]*>/g, '') // Supprimer les balises HTML
-                        ?.replace(/&nbsp;/g, ' ') // Remplacer les espaces insécables
-                        ?.replace(/&amp;/g, '&') // Décoder les entités HTML
-                        ?.replace(/&lt;/g, '<')
-                        ?.replace(/&gt;/g, '>')
-                        ?.replace(/&quot;/g, '"')
-                        ?.trim() || '', 
-                      150
-                    )}
-                  </div>
+                  {(() => {
+                    const excerpt = article.excerpt?.trim();
+                    const content = getArticleContent(article, 'content')?.trim();
+                    
+                    // Si on a un excerpt, l'utiliser
+                    if (excerpt) {
+                      return (
+                        <div className="text-gray-600 mb-4 line-clamp-3">
+                          {excerpt}
+                        </div>
+                      );
+                    }
+                    
+                    // Sinon, utiliser le contenu s'il existe
+                    if (content) {
+                      const cleanContent = content
+                        .replace(/<[^>]*>/g, '') // Supprimer les balises HTML
+                        .replace(/&nbsp;/g, ' ') // Remplacer les espaces insécables
+                        .replace(/&amp;/g, '&') // Décoder les entités HTML
+                        .replace(/&lt;/g, '<')
+                        .replace(/&gt;/g, '>')
+                        .replace(/&quot;/g, '"')
+                        .replace(/\s+/g, ' ') // Remplacer les espaces multiples
+                        .trim();
+                      
+                      return (
+                        <div className="text-gray-600 mb-4 line-clamp-3">
+                          {truncateText(cleanContent, 150)}
+                        </div>
+                      );
+                    }
+                    
+                    // Si ni excerpt ni contenu, afficher un message
+                    return (
+                      <div className="text-gray-400 italic mb-4">
+                        {currentLanguage.code === 'fr' 
+                          ? 'Contenu en cours de rédaction...'
+                          : 'المحتوى قيد التحرير...'
+                        }
+                      </div>
+                    );
+                  })()}
                   
                   <div className="flex items-center justify-between text-sm">
                     {article.createdAt && (
@@ -221,6 +347,19 @@ export default function ArticlesPage() {
                 </div>
               </Card>
             ))}
+          </div>
+        )}
+        
+        {/* Pagination */}
+        {renderPagination()}
+        
+        {/* Articles count info */}
+        {articles.length > 0 && (
+          <div className="text-center mt-8 text-sm text-gray-500">
+            {currentLanguage.code === 'fr' 
+              ? `Affichage de ${startIndex + 1}-${Math.min(endIndex, articles.length)} sur ${articles.length} articles`
+              : `عرض ${startIndex + 1}-${Math.min(endIndex, articles.length)} من ${articles.length} مقالات`
+            }
           </div>
         )}
       </div>
