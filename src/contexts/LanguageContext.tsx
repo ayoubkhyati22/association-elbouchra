@@ -82,6 +82,8 @@ const translations = {
 
     // Common
     'common.learn-more': 'En savoir plus',
+    'common.read-more': 'Lire la suite',
+    'common.read-less': 'Lire moins',
 
     // Footer
     'footer.quick-links': 'Liens rapides',
@@ -237,6 +239,8 @@ Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
 
     // Common
     'common.learn-more': 'اعرف المزيد',
+    'common.read-more': 'اقرأ المزيد',
+    'common.read-less': 'اقرأ أقل',
 
     // Footer
     'footer.quick-links': 'روابط سريعة',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Leaf, Users, Heart, Award, Star, Calendar } from 'lucide-react';
 import ImageSlider from '../components/ImageSlider';
 import Card from '../components/Card';
@@ -13,6 +14,7 @@ interface HomePageProps {
 
 export default function HomePage({ onPageChange }: HomePageProps) {
   const { t, currentLanguage } = useLanguage();
+  const [showFullMessage, setShowFullMessage] = useState(false);
 
   // Prendre seulement les 3 premiers membres pour la page d'accueil
   const teamMembers = teamMembersData.slice(0, 8);
@@ -38,6 +40,15 @@ export default function HomePage({ onPageChange }: HomePageProps) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Fonction pour tronquer le texte
+  const truncateText = (text: string, maxLength: number) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
+  const presidentMessage = t('home.president.message');
+  const maxLength = 300; // Nombre de caractères à afficher initialement
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -62,9 +73,17 @@ export default function HomePage({ onPageChange }: HomePageProps) {
               {t('home.president.title')}
             </h2>
             <div className="flex-1 flex flex-col justify-center">
-              <p className="text-gray-700 leading-relaxed mb-6 text-justify">
-                {t('home.president.message')}
+              <p className="text-gray-700 leading-relaxed mb-4 text-justify whitespace-pre-line">
+                {showFullMessage ? presidentMessage : truncateText(presidentMessage, maxLength)}
               </p>
+              {presidentMessage.length > maxLength && (
+                <button
+                  onClick={() => setShowFullMessage(!showFullMessage)}
+                  className="text-blue-600 hover:text-blue-800 font-medium text-sm mb-4 text-left transition-colors duration-200"
+                >
+                  {showFullMessage ? t('common.read-less') : t('common.read-more')}
+                </button>
+              )}
               <div className="border-t border-gray-200 pt-4">
                 <p className="font-semibold text-blue-900">
                   {t('home.president.name')}
@@ -80,7 +99,7 @@ export default function HomePage({ onPageChange }: HomePageProps) {
           <Card className="overflow-hidden min-h-[400px]">
             <div className="h-full">
               <img
-                src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg"
+                src="/assets/mot-president.jpg"
                 alt={t('home.president.name')}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
