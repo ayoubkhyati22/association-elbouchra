@@ -281,8 +281,13 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Image à la une */}
-          <Card className="p-6">
+          <Card className="p-6 opacity-50 pointer-events-none bg-gray-100">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Image à la une</h3>
+            <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-3 mb-4">
+              <p className="text-sm text-yellow-800">
+                ⚠️ Section temporairement désactivée
+              </p>
+            </div>
             
             {featuredImage ? (
               <div className="space-y-4">
@@ -292,8 +297,9 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
                   className="w-full h-40 object-cover rounded-lg"
                 />
                 <button
-                  onClick={() => setFeaturedImage('')}
+                  onClick={() => {}}
                   className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200"
+                  disabled
                 >
                   Supprimer l'image
                 </button>
@@ -308,16 +314,17 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
                   <input
                     type="file"
                     accept="image/*"
-                    onChange={handleImageFileChange}
+                    onChange={() => {}}
                     className="hidden"
                     id="featured-image"
+                    disabled
                   />
                   <label
                     htmlFor="featured-image"
-                    className="cursor-pointer inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                    className="cursor-not-allowed inline-flex items-center space-x-2 px-4 py-2 bg-gray-400 text-white rounded-lg"
                   >
                     <Image size={16} />
-                    <span>{uploadingImage ? 'Téléchargement...' : 'Choisir une image'}</span>
+                    <span>Désactivé</span>
                   </label>
                 </div>
                 
@@ -326,9 +333,10 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
                   <input
                     type="url"
                     value={featuredImage}
-                    onChange={(e) => setFeaturedImage(e.target.value)}
+                    onChange={() => {}}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                     placeholder="https://exemple.com/image.jpg"
+                    disabled
                   />
                 </div>
               </div>
