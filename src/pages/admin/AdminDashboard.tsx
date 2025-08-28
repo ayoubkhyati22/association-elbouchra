@@ -58,8 +58,8 @@ export default function AdminDashboard() {
               </div>
             </Card>
 
-            <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200" onClick={handleNewArticle}>
-              <div className="flex items-center space-x-4">
+            <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200">
+              <div className="flex items-center space-x-4" onClick={handleNewArticle}>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <Plus className="text-green-600" size={24} />
                 </div>

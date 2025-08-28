@@ -7,8 +7,12 @@ import Card from '../Card';
 interface ArticlesListProps {
   onEdit: (article: any) => void;
 }
+interface ArticlesListProps {
+  onEdit: (article: any) => void;
+  onNew?: () => void;
+}
 
-export default function ArticlesList({ onEdit }: ArticlesListProps) {
+export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
   const [articles, setArticles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -84,8 +88,19 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-blue-900">Articles</h1>
-        <div className="text-sm text-gray-600">
-          {articles.length} article{articles.length !== 1 ? 's' : ''}
+        <div className="flex items-center space-x-4">
+          {onNew && (
+            <button
+              onClick={onNew}
+              className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200"
+            >
+              <Plus size={16} />
+              <span>Nouvel Article</span>
+            </button>
+          )}
+          <div className="text-sm text-gray-600">
+            {articles.length} article{articles.length !== 1 ? 's' : ''}
+          </div>
         </div>
       </div>
 
