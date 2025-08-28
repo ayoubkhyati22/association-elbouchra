@@ -142,8 +142,7 @@ const translations = {
 
     // President message
     'home.president.title': 'Mot du Président',
-'home.president.message': `Bienvenue et remerciements
-
+'home.president.message': `
 Au nom de Dieu, le Tout Miséricordieux, le Très Miséricordieux
 
 Que la paix et les bénédictions soient sur le plus honorable des prophètes et des messagers, ainsi que sur sa famille et ses compagnons.
