@@ -75,7 +75,7 @@ export default function ActivitiesPage() {
             {t('activities.impact.title')}
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
               <div className="text-gray-700">{t('activities.impact.people')}</div>
