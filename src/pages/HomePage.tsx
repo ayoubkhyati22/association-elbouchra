@@ -273,7 +273,7 @@ export default function HomePage({ onPageChange }: HomePageProps) {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {statsData.map((stat) => {
             const getIconComponent = (iconName: string) => {
               switch (iconName) {
