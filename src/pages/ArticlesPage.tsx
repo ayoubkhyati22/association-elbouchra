@@ -392,9 +392,16 @@ export default function ArticlesPage() {
                       {getArticleContent(article, 'title')}
                     </h3>
                     
-                    {/* Contenu de l'article avec nettoyage HTML amélioré */}
-                    <div className="text-gray-600 mb-4 line-clamp-3">
-                      {getArticleExcerpt(article)}
+                    {/* Excerpt si disponible */}
+                    {article.excerpt && article.excerpt.trim() && (
+                      <div className="text-blue-600 mb-3 italic text-sm border-l-2 border-blue-300 pl-3">
+                        "{cleanHtmlContent(article.excerpt.trim())}"
+                      </div>
+                    )}
+                    
+                    {/* Contenu de l'article */}
+                    <div className="text-gray-600 mb-4 line-clamp-3 text-sm">
+                      {truncateText(article.content, 150)}
                     </div>
                     
                     <div className="flex items-center justify-between text-sm">
