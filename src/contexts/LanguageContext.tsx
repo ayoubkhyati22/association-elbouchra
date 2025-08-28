@@ -23,6 +23,7 @@ const translations = {
     'nav.program': 'Programme annuel',
     'nav.contact': 'Contact',
     'nav.shop': 'Boutique',
+    'nav.articles': 'Articles',
 
     // Home page
     'home.hero.title': 'Association El Bouchra pour le développement durable -HAY ADIL-',
@@ -164,7 +165,7 @@ En conclusion, nous demandons à Dieu de nous aider à répondre aux attentes de
 Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
 ,
     'home.president.name': 'El FOUNDY Zakaria',
-    'home.president.position': 'Président de l\'Association EL BOUCHRA',
+    'home.president.position': 'Président de l\'Association',
 
     // Footer additional
     'footer.description': 'Association pour le Développement Durable',
@@ -179,6 +180,7 @@ Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
     'nav.program': 'البرنامج السنوي',
     'nav.contact': 'اتصل بنا',
     'nav.shop': 'المتجر',
+    'nav.articles': 'المقالات',
 
     // Home page
     'home.hero.title': 'جمعية البشرى للتنمية المستدامة -فرع حي عادل-',
@@ -320,7 +322,7 @@ Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
 والسلام عليكـم ورحمـة الله وبركاتـه.`,
 
     'home.president.name': 'الفندي زكرياء',
-    'home.president.position': 'رئيس جمعية البشرى',
+    'home.president.position': 'رئيسى',
 
     // Footer additional
     'footer.description': 'جمعية للتنمية المستدامة',

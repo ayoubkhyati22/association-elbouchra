@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ShoppingCart, Languages, Home, Users, Activity, UserPlus, Calendar, Mail, FileText } from 'lucide-react';
+import { Menu, X, ShoppingCart, Languages, Home, Users, Activity, UserPlus, Calendar, Mail, FileText, BookOpen } from 'lucide-react';
 import { useLanguage, languages } from '../contexts/LanguageContext';
 
 interface HeaderProps {
@@ -15,6 +15,7 @@ export default function Header({ currentPage, onPageChange }: HeaderProps) {
   const navigationItems = [
     { key: 'home', href: 'home', icon: Home },
     { key: 'identification', href: 'identification', icon: FileText },
+    { key: 'articles', href: 'articles', icon: BookOpen },
     { key: 'members', href: 'members', icon: Users },
     { key: 'activities', href: 'activities', icon: Activity },
     { key: 'membership', href: 'membership', icon: UserPlus },
