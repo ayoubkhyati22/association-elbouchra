@@ -33,7 +33,7 @@ export default function AdminDashboard() {
   const renderContent = () => {
     switch (currentView) {
       case 'articles':
-        return <ArticlesList onEdit={handleEditArticle} />;
+        return <ArticlesList onEdit={handleEditArticle} onNew={handleNewArticle} />;
       case 'editor':
       case 'edit':
         return (
