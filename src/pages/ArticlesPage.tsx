@@ -160,8 +160,7 @@ export default function ArticlesPage() {
             {articles.map((article) => (
               <Card 
                 key={article.id} 
-                className="overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
-                onClick={() => handleArticleClick(article.id)}
+                className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-blue-900 mb-3 line-clamp-2">
@@ -172,16 +171,19 @@ export default function ArticlesPage() {
                     {truncateText(getArticleContent(article, 'content')?.replace(/<[^>]*>/g, '') || '', 120)}
                   </div>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-500">
+                  <div className="flex items-center justify-between text-sm">
                     {article.createdAt && (
-                      <div className="flex items-center space-x-1">
+                      <div className="flex items-center space-x-1 text-gray-500">
                         <Calendar size={14} />
                         <span>{article.createdAt}</span>
                       </div>
                     )}
-                    <span className="text-blue-600 font-medium">
+                    <button
+                      onClick={() => handleArticleClick(article.id)}
+                      className="text-blue-600 font-medium hover:text-blue-800 transition-colors duration-200 cursor-pointer"
+                    >
                       {currentLanguage.code === 'fr' ? 'Lire plus' : 'اقرأ المزيد'}
-                    </span>
+                    </button>
                   </div>
                 </div>
               </Card>
