@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Edit, Trash2, Eye, Calendar, User, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { collection, getDocs, deleteDoc, doc, orderBy, query } from 'firebase/firestore';
 import { db } from '../../config/firebase';
+import { useLanguage } from '../../contexts/LanguageContext';
 import Card from '../Card';
 
 interface ArticlesListProps {
@@ -13,6 +14,7 @@ interface ArticlesListProps {
 }
 
 export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
+  const { t } = useLanguage();
   const [articles, setArticles] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -64,13 +66,13 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
   };
 
   const handleDelete = async (articleId: string) => {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) {
+    if (window.confirm(t('admin.articles.confirm-delete'))) {
       try {
         await deleteDoc(doc(db, 'articles', articleId));
         setArticles(articles.filter(article => article.id !== articleId));
       } catch (error) {
         console.error('Error deleting article:', error);
-        alert('Erreur lors de la suppression de l\'article.');
+        alert(t('admin.articles.delete-error'));
       }
     }
   };
@@ -108,7 +110,7 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
           className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
         >
           <ChevronLeft size={16} />
-          <span>Précédent</span>
+          <span>{t('admin.articles.previous')}</span>
         </button>
 
         {/* Page numbers */}
@@ -160,7 +162,7 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
           disabled={currentPage === totalPages}
           className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
         >
-          <span>Suivant</span>
+          <span>{t('admin.articles.next')}</span>
           <ChevronRight size={16} />
         </button>
       </div>
@@ -184,7 +186,7 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-blue-900">Articles</h1>
+        <h1 className="text-2xl font-bold text-blue-900">{t('admin.articles.title')}</h1>
         <div className="flex items-center space-x-4">
           {onNew && (
             <button
@@ -192,13 +194,15 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
               className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200"
             >
               <Plus size={16} />
-              <span>Nouvel Article</span>
+              <span>{t('admin.articles.new-article')}</span>
             </button>
           )}
           <div className="flex items-center space-x-4 text-sm text-gray-600">
-            <span>{articles.length} article{articles.length !== 1 ? 's' : ''}</span>
+            <span>
+              {articles.length} {articles.length === 1 ? t('admin.articles.count') : t('admin.articles.count-plural')}
+            </span>
             {totalPages > 1 && (
-              <span>Page {currentPage} sur {totalPages}</span>
+              <span>{t('admin.articles.page-of').replace('{current}', currentPage.toString()).replace('{total}', totalPages.toString())}</span>
             )}
           </div>
         </div>
@@ -208,8 +212,8 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
         <Card className="p-8 text-center">
           <div className="text-gray-500">
             <Eye size={48} className="mx-auto mb-4 opacity-50" />
-            <p className="text-lg">Aucun article trouvé</p>
-            <p className="text-sm">Commencez par créer votre premier article.</p>
+            <p className="text-lg">{t('admin.articles.no-articles')}</p>
+            <p className="text-sm">{t('admin.articles.create-first')}</p>
           </div>
         </Card>
       ) : (
@@ -228,7 +232,7 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
                   </div>
                 ) : (
                   <div className="flex-shrink-0 w-32 h-24 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-400 text-xs">Pas d'image</span>
+                    <span className="text-gray-400 text-xs">{t('admin.articles.no-image')}</span>
                   </div>
                 )}
 
@@ -236,20 +240,20 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
                 <div className="flex-1 min-w-0">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-semibold text-blue-900 truncate">
-                      {article.title || 'Titre non défini'}
+                      {article.title || t('admin.articles.undefined-title')}
                     </h3>
                     <div className="flex space-x-2 ml-4">
                       <button
                         onClick={() => onEdit(article)}
                         className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
-                        title="Modifier"
+                        title={t('admin.articles.edit')}
                       >
                         <Edit size={16} />
                       </button>
                       <button
                         onClick={() => handleDelete(article.id)}
                         className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
-                        title="Supprimer"
+                        title={t('admin.articles.delete')}
                       >
                         <Trash2 size={16} />
                       </button>
@@ -271,7 +275,7 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
                       <User size={14} />
-                      <span>{article.createdBy || 'Association EL BOUCHRA HAY ADIL'}</span>
+                      <span>{article.createdBy || t('admin.articles.created-by')}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar size={14} />
@@ -291,7 +295,10 @@ export default function ArticlesList({ onEdit, onNew }: ArticlesListProps) {
       {/* Articles count info */}
       {articles.length > 0 && totalPages > 1 && (
         <div className="text-center mt-6 text-sm text-gray-500">
-          Affichage de {startIndex + 1}-{Math.min(endIndex, articles.length)} sur {articles.length} articles
+          {t('admin.articles.showing')
+            .replace('{start}', (startIndex + 1).toString())
+            .replace('{end}', Math.min(endIndex, articles.length).toString())
+            .replace('{total}', articles.length.toString())}
         </div>
       )}
     </div>

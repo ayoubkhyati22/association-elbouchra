@@ -6,6 +6,7 @@ import { collection, addDoc, updateDoc, doc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../config/firebase';
 import { useAuth } from '../../contexts/AuthContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import Card from '../Card';
 
 interface ArticleEditorProps {
@@ -15,6 +16,7 @@ interface ArticleEditorProps {
 }
 
 export default function ArticleEditor({ article, onSave, onCancel }: ArticleEditorProps) {
+  const { t } = useLanguage();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [excerpt, setExcerpt] = useState('');
@@ -90,12 +92,12 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
 
   const handleSave = async () => {
     if (!title.trim()) {
-      alert('Veuillez saisir un titre pour l\'article.');
+      alert(t('admin.editor.title-required'));
       return;
     }
 
     if (!content.trim()) {
-      alert('Veuillez saisir le contenu de l\'article.');
+      alert(t('admin.editor.content-required'));
       return;
     }
 
@@ -131,7 +133,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
       onSave();
     } catch (error) {
       console.error('Error saving article:', error);
-      alert('Erreur lors de la sauvegarde de l\'article: ' + error.message);
+      alert(t('admin.editor.save-error').replace('{error}', error.message));
     } finally {
       setLoading(false);
     }
@@ -145,14 +147,14 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
     return (
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-blue-900">Aperçu de l'article</h1>
+          <h1 className="text-2xl font-bold text-blue-900">{t('admin.editor.article-preview')}</h1>
           <div className="flex space-x-3">
             <button
               onClick={handlePreview}
               className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200"
             >
               <X size={16} />
-              <span>Fermer l'aperçu</span>
+              <span>{t('admin.editor.close-preview')}</span>
             </button>
           </div>
         </div>
@@ -189,7 +191,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
     <div className="max-w-6xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-blue-900">
-          {article ? 'Modifier l\'article' : 'Créer un nouvel article'}
+          {article ? t('admin.editor.edit-article') : t('admin.editor.new-article')}
         </h1>
         <div className="flex space-x-3">
           <button
@@ -197,14 +199,14 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
             className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200"
           >
             <Eye size={16} />
-            <span>Aperçu</span>
+            <span>{t('admin.editor.preview')}</span>
           </button>
           <button
             onClick={onCancel}
             className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200"
           >
             <X size={16} />
-            <span>Annuler</span>
+            <span>{t('admin.editor.cancel')}</span>
           </button>
           <button
             onClick={handleSave}
@@ -212,7 +214,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
             className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-400 transition-colors duration-200"
           >
             <Save size={16} />
-            <span>{loading ? 'Sauvegarde...' : 'Publier'}</span>
+            <span>{loading ? t('admin.editor.saving') : t('admin.editor.publish')}</span>
           </button>
         </div>
       </div>
@@ -224,40 +226,40 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Titre de l'article *
+                  {t('admin.editor.title-label')}
                 </label>
                 <input
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
-                  placeholder="Saisissez un titre accrocheur..."
+                  placeholder={t('admin.editor.title-placeholder')}
                   required
                 />
                 <div className="text-xs text-gray-500 mt-1">
-                  {title.length}/100 caractères recommandés
+                  {t('admin.editor.title-chars').replace('{count}', title.length.toString())}
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Résumé de l'article
+                  {t('admin.editor.excerpt-label')}
                 </label>
                 <textarea
                   value={excerpt}
                   onChange={(e) => setExcerpt(e.target.value)}
                   rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Résumé qui apparaîtra dans la liste des articles (optionnel - généré automatiquement si vide)"
+                  placeholder={t('admin.editor.excerpt-placeholder')}
                 />
                 <div className="text-xs text-gray-500 mt-1">
-                  {excerpt.length}/200 caractères recommandés
+                  {t('admin.editor.excerpt-chars').replace('{count}', excerpt.length.toString())}
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Contenu de l'article *
+                  {t('admin.editor.content-label')}
                 </label>
                 <div className="border border-gray-300 rounded-lg overflow-hidden">
                   <ReactQuill
@@ -267,11 +269,11 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
                     modules={modules}
                     formats={formats}
                     style={{ minHeight: '400px' }}
-                    placeholder="Rédigez le contenu de votre article... Utilisez la barre d'outils pour formater le texte, ajouter des liens, des images, etc."
+                    placeholder={t('admin.editor.content-placeholder')}
                   />
                 </div>
                 <div className="text-xs text-gray-500 mt-1">
-                  Utilisez la barre d'outils pour formater votre texte
+                  {t('admin.editor.content-help')}
                 </div>
               </div>
             </div>
@@ -282,7 +284,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
         <div className="space-y-6">
           {/* Image à la une */}
           <Card className="p-6 opacity-50 pointer-events-none bg-gray-100">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Image à la une</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('admin.editor.featured-image')}</h3>
             
             {featuredImage ? (
               <div className="space-y-4">
@@ -296,7 +298,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
                   className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200"
                   disabled
                 >
-                  Supprimer l'image
+                  {t('admin.editor.remove-image')}
                 </button>
               </div>
             ) : (
@@ -304,7 +306,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
                   <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
                   <p className="text-sm text-gray-600 mb-4">
-                    Ajoutez une image à la une pour votre article
+                    {t('admin.editor.add-image')}
                   </p>
                   <input
                     type="file"
@@ -319,18 +321,18 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
                     className="cursor-not-allowed inline-flex items-center space-x-2 px-4 py-2 bg-gray-400 text-white rounded-lg"
                   >
                     <Image size={16} />
-                    <span>Désactivé</span>
+                    <span>{t('admin.editor.disabled')}</span>
                   </label>
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-xs text-gray-500 mb-2">Ou ajoutez une URL d'image :</p>
+                  <p className="text-xs text-gray-500 mb-2">{t('admin.editor.image-url')}</p>
                   <input
                     type="url"
                     value={featuredImage}
                     onChange={() => {}}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
-                    placeholder="https://exemple.com/image.jpg"
+                    placeholder={t('admin.editor.image-url-placeholder')}
                     disabled
                   />
                 </div>
@@ -340,18 +342,18 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
 
           {/* Informations */}
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Informations</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('admin.editor.information')}</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Statut :</span>
-                <span className="font-medium text-green-600">Brouillon</span>
+                <span className="text-gray-600">{t('admin.editor.status')} :</span>
+                <span className="font-medium text-green-600">{t('admin.editor.draft')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Auteur :</span>
+                <span className="text-gray-600">{t('admin.editor.author')} :</span>
                 <span className="font-medium">{currentUser?.email || 'Admin'}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Date :</span>
+                <span className="text-gray-600">{t('admin.editor.date')} :</span>
                 <span className="font-medium">{new Date().toLocaleDateString('fr-FR')}</span>
               </div>
             </div>
@@ -359,13 +361,13 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
 
           {/* Conseils de rédaction */}
           <Card className="p-6 bg-blue-50">
-            <h3 className="text-lg font-semibold text-blue-900 mb-4">💡 Conseils de rédaction</h3>
+            <h3 className="text-lg font-semibold text-blue-900 mb-4">{t('admin.editor.writing-tips')}</h3>
             <ul className="space-y-2 text-sm text-blue-800">
-              <li>• Utilisez un titre accrocheur et descriptif</li>
-              <li>• Ajoutez une image à la une attractive</li>
-              <li>• Structurez votre contenu avec des sous-titres</li>
-              <li>• Utilisez des listes à puces pour la lisibilité</li>
-              <li>• Relisez avant de publier</li>
+              <li>{t('admin.editor.tip1')}</li>
+              <li>{t('admin.editor.tip2')}</li>
+              <li>{t('admin.editor.tip3')}</li>
+              <li>{t('admin.editor.tip4')}</li>
+              <li>{t('admin.editor.tip5')}</li>
             </ul>
           </Card>
         </div>

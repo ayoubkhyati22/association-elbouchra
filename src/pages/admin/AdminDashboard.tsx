@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LogOut, FileText, Plus, Users, Activity, Calendar, ShoppingCart, UserCheck, BarChart3, Download, Eye as EyeIcon, FileText as ArticleIcon } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import Card from '../../components/Card';
 import ArticleEditor from '../../components/admin/ArticleEditor';
 import ArticlesList from '../../components/admin/ArticlesList';
@@ -9,6 +10,7 @@ type AdminView = 'dashboard' | 'articles' | 'editor' | 'edit';
 
 export default function AdminDashboard() {
   const { logout, currentUser } = useAuth();
+  const { t } = useLanguage();
   const [currentView, setCurrentView] = useState<AdminView>('dashboard');
   const [editingArticle, setEditingArticle] = useState<any>(null);
 
@@ -48,14 +50,14 @@ export default function AdminDashboard() {
           <div className="space-y-8">
             {/* KPI Section */}
             <div>
-              <h2 className="text-xl font-bold text-blue-900 mb-6">Statistiques</h2>
+              <h2 className="text-xl font-bold text-blue-900 mb-6">{t('admin.dashboard.statistics')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <Card className="p-4 text-center">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Activity className="text-blue-600" size={20} />
                   </div>
                   <div className="text-2xl font-bold text-blue-900 mb-1">25</div>
-                  <div className="text-sm text-gray-600">Total Activités</div>
+                  <div className="text-sm text-gray-600">{t('admin.dashboard.total-activities')}</div>
                 </Card>
                 
                 <Card className="p-4 text-center">
@@ -63,7 +65,7 @@ export default function AdminDashboard() {
                     <ArticleIcon className="text-green-600" size={20} />
                   </div>
                   <div className="text-2xl font-bold text-blue-900 mb-1">12</div>
-                  <div className="text-sm text-gray-600">Total Articles</div>
+                  <div className="text-sm text-gray-600">{t('admin.dashboard.total-articles')}</div>
                 </Card>
                 
                 <Card className="p-4 text-center">
@@ -71,7 +73,7 @@ export default function AdminDashboard() {
                     <Users className="text-purple-600" size={20} />
                   </div>
                   <div className="text-2xl font-bold text-blue-900 mb-1">150</div>
-                  <div className="text-sm text-gray-600">Total Membres</div>
+                  <div className="text-sm text-gray-600">{t('admin.dashboard.total-members')}</div>
                 </Card>
                 
                 <Card className="p-4 text-center">
@@ -79,7 +81,7 @@ export default function AdminDashboard() {
                     <Download className="text-orange-600" size={20} />
                   </div>
                   <div className="text-2xl font-bold text-blue-900 mb-1">89</div>
-                  <div className="text-sm text-gray-600">PDF Téléchargés</div>
+                  <div className="text-sm text-gray-600">{t('admin.dashboard.pdf-downloads')}</div>
                 </Card>
                 
                 <Card className="p-4 text-center">
@@ -87,14 +89,14 @@ export default function AdminDashboard() {
                     <EyeIcon className="text-red-600" size={20} />
                   </div>
                   <div className="text-2xl font-bold text-blue-900 mb-1">2,547</div>
-                  <div className="text-sm text-gray-600">Visiteurs du Site</div>
+                  <div className="text-sm text-gray-600">{t('admin.dashboard.site-visitors')}</div>
                 </Card>
               </div>
             </div>
 
             {/* Management Section */}
             <div>
-              <h2 className="text-xl font-bold text-blue-900 mb-6">Gestion</h2>
+              <h2 className="text-xl font-bold text-blue-900 mb-6">{t('admin.dashboard.management')}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Articles - Active */}
                 <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200">
@@ -103,8 +105,8 @@ export default function AdminDashboard() {
                       <Plus className="text-green-600" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-blue-900">Nouvel Article</h3>
-                      <p className="text-gray-600">Créer un article</p>
+                      <h3 className="text-lg font-semibold text-blue-900">{t('admin.dashboard.new-article')}</h3>
+                      <p className="text-gray-600">{t('admin.dashboard.create-article')}</p>
                     </div>
                   </div>
                 </Card>
@@ -116,8 +118,8 @@ export default function AdminDashboard() {
                       <Users className="text-gray-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-500">Gestion des Utilisateurs</h3>
-                      <p className="text-gray-400">Bientôt disponible</p>
+                      <h3 className="text-lg font-semibold text-gray-500">{t('admin.dashboard.user-management')}</h3>
+                      <p className="text-gray-400">{t('admin.dashboard.coming-soon')}</p>
                     </div>
                   </div>
                 </Card>
@@ -128,8 +130,8 @@ export default function AdminDashboard() {
                       <UserCheck className="text-gray-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-500">Gestion des Membres</h3>
-                      <p className="text-gray-400">Bientôt disponible</p>
+                      <h3 className="text-lg font-semibold text-gray-500">{t('admin.dashboard.member-management')}</h3>
+                      <p className="text-gray-400">{t('admin.dashboard.coming-soon')}</p>
                     </div>
                   </div>
                 </Card>
@@ -140,8 +142,8 @@ export default function AdminDashboard() {
                       <Activity className="text-gray-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-500">Gestion des Activités</h3>
-                      <p className="text-gray-400">Bientôt disponible</p>
+                      <h3 className="text-lg font-semibold text-gray-500">{t('admin.dashboard.activity-management')}</h3>
+                      <p className="text-gray-400">{t('admin.dashboard.coming-soon')}</p>
                     </div>
                   </div>
                 </Card>
@@ -152,8 +154,8 @@ export default function AdminDashboard() {
                       <Calendar className="text-gray-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-500">Programmes Annuels</h3>
-                      <p className="text-gray-400">Bientôt disponible</p>
+                      <h3 className="text-lg font-semibold text-gray-500">{t('admin.dashboard.program-management')}</h3>
+                      <p className="text-gray-400">{t('admin.dashboard.coming-soon')}</p>
                     </div>
                   </div>
                 </Card>
@@ -164,8 +166,8 @@ export default function AdminDashboard() {
                       <ShoppingCart className="text-gray-400" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-500">Gestion des T-shirts</h3>
-                      <p className="text-gray-400">Bientôt disponible</p>
+                      <h3 className="text-lg font-semibold text-gray-500">{t('admin.dashboard.tshirt-management')}</h3>
+                      <p className="text-gray-400">{t('admin.dashboard.coming-soon')}</p>
                     </div>
                   </div>
                 </Card>
@@ -215,19 +217,19 @@ export default function AdminDashboard() {
                 currentView === 'dashboard'
                   ? 'border-blue-500 text-blue-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
-              }`}
+            <h1 className="text-xl font-bold text-blue-900">{t('admin.header.administration')}</h1>
             >
-              Tableau de bord
+              {t('admin.nav.dashboard')}
             </button>
             <button
-              onClick={() => setCurrentView('articles')}
+              {t('admin.header.connected-as')}: {currentUser?.email}
               className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors duration-200 ${
                 currentView === 'articles'
                   ? 'border-blue-500 text-blue-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
             >
-              Articles
+              {t('admin.nav.articles')}
             </button>
           </div>
         </div>

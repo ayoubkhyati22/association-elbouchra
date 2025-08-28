@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import Card from '../../components/Card';
 
 export default function LoginPage() {
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +21,7 @@ export default function LoginPage() {
       setLoading(true);
       await login(email, password);
     } catch (error) {
-      setError('Échec de la connexion. Vérifiez vos identifiants.');
+      setError(t('admin.login.error'));
       console.error('Login error:', error);
     } finally {
       setLoading(false);
@@ -34,10 +36,10 @@ export default function LoginPage() {
             <Lock className="text-blue-600" size={32} />
           </div>
           <h1 className="text-2xl font-bold text-blue-900 mb-2">
-            Administration
+            {t('admin.login.title')}
           </h1>
           <p className="text-gray-600">
-            Connectez-vous pour accéder au panneau d'administration
+            {t('admin.login.subtitle')}
           </p>
         </div>
 
@@ -50,7 +52,7 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email
+              {t('admin.login.email')}
             </label>
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -60,14 +62,14 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                placeholder="admin@elbouchra.org"
+                placeholder={t('admin.login.email-placeholder')}
               />
             </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Mot de passe
+              {t('admin.login.password')}
             </label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -77,12 +79,13 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                placeholder="••••••••"
+                placeholder={t('admin.login.password-placeholder')}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                title={showPassword ? t('admin.login.hide-password') : t('admin.login.show-password')}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -99,7 +102,7 @@ export default function LoginPage() {
             ) : (
               <>
                 <Lock size={20} />
-                <span>Se connecter</span>
+                <span>{t('admin.login.login')}</span>
               </>
             )}
           </button>
@@ -107,7 +110,7 @@ export default function LoginPage() {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-500">
-            Accès réservé aux administrateurs de l'association
+            {t('admin.login.restricted')}
           </p>
         </div>
       </Card>
