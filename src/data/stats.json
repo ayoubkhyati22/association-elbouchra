@@ -9,15 +9,6 @@
     "icon": "Users"
   },
   {
-    "id": "trees",
-    "number": "2,500+",
-    "label": {
-      "fr": "Arbres plantés",
-      "ar": "شجرة مزروعة"
-    },
-    "icon": "Leaf"
-  },
-  {
     "id": "projects",
     "number": "25+",
     "label": {
