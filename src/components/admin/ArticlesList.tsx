@@ -149,7 +149,7 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
                       <User size={14} />
-                      <span>{article.createdBy || 'Association EL BOUCHRA'}</span>
+                      <span>{article.createdBy || 'Association EL BOUCHRA HAY ADIL'}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar size={14} />
