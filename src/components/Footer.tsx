@@ -118,14 +118,6 @@ export default function Footer({ onPageChange }: FooterProps) {
             <p className="text-blue-200 text-sm">
               © 2025 Association EL BOUCHRA. Tous droits réservés.
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-blue-200 hover:text-white transition-colors duration-200">
-                {t('footer.privacy')}
-              </a>
-              <a href="#" className="text-blue-200 hover:text-white transition-colors duration-200">
-                {t('footer.legal')}
-              </a>
-            </div>
           </div>
         </div>
       </div>
