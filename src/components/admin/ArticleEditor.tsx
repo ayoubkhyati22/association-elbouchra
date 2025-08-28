@@ -283,11 +283,6 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
           {/* Image à la une */}
           <Card className="p-6 opacity-50 pointer-events-none bg-gray-100">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Image à la une</h3>
-            <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-3 mb-4">
-              <p className="text-sm text-yellow-800">
-                ⚠️ Section temporairement désactivée
-              </p>
-            </div>
             
             {featuredImage ? (
               <div className="space-y-4">

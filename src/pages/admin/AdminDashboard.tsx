@@ -46,18 +46,6 @@ export default function AdminDashboard() {
       default:
         return (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200" onClick={() => setCurrentView('articles')}>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <FileText className="text-blue-600" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-blue-900">Articles</h3>
-                  <p className="text-gray-600">Gérer les articles</p>
-                </div>
-              </div>
-            </Card>
-
             <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200">
               <div className="flex items-center space-x-4" onClick={handleNewArticle}>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -81,11 +69,9 @@ export default function AdminDashboard() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <img 
-                src="/assets/logo-ass.png" 
-                alt="Logo EL BOUCHRA" 
-                className="w-10 h-10 object-contain"
-              />
+              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <FileText className="text-blue-600" size={20} />
+              </div>
               <h1 className="text-xl font-bold text-blue-900">Administration</h1>
             </div>
 

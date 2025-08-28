@@ -16,6 +16,7 @@ import ActivitiesPage from './pages/ActivitiesPage';
 import ArticlesPage from './pages/ArticlesPage';
 import ArticleDetailPage from './pages/ArticleDetailPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import ScrollToTop from './components/ScrollToTop';
 
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -89,6 +90,7 @@ function AppContent() {
         {renderPage()}
       </main>
       {!isArticleDetailPage && <Footer onPageChange={handlePageChange} />}
+      <ScrollToTop />
     </div>
   );
 }
