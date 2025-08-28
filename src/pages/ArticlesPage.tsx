@@ -162,13 +162,23 @@ export default function ArticlesPage() {
                 key={article.id} 
                 className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
+                {article.featuredImage && (
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={article.featuredImage}
+                      alt={article.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-blue-900 mb-3 line-clamp-2">
                     {getArticleContent(article, 'title')}
                   </h3>
                   
                   <div className="text-gray-600 mb-4 line-clamp-3">
-                    {truncateText(getArticleContent(article, 'content')?.replace(/<[^>]*>/g, '') || '', 120)}
+                    {article.excerpt || truncateText(getArticleContent(article, 'content')?.replace(/<[^>]*>/g, '') || '', 120)}
                   </div>
                   
                   <div className="flex items-center justify-between text-sm">

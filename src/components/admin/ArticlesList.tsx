@@ -103,13 +103,17 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
             <Card key={article.id} className="p-6">
               <div className="flex gap-6">
                 {/* Image */}
-                {article.featuredImage && (
+                {article.featuredImage ? (
                   <div className="flex-shrink-0">
                     <img
                       src={article.featuredImage}
                       alt={article.title || 'Article'}
                       className="w-32 h-24 object-cover rounded-lg"
                     />
+                  </div>
+                ) : (
+                  <div className="flex-shrink-0 w-32 h-24 bg-gray-200 rounded-lg flex items-center justify-center">
+                    <span className="text-gray-400 text-xs">Pas d'image</span>
                   </div>
                 )}
 
@@ -138,6 +142,9 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
                   </div>
 
                   <div className="text-gray-600 mb-3">
+                    {article.excerpt ? (
+                      <p className="text-sm italic text-blue-600 mb-2">"{article.excerpt}"</p>
+                    ) : null}
                     <div 
                       className="prose prose-sm max-w-none"
                       dangerouslySetInnerHTML={{ 

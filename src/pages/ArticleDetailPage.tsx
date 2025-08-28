@@ -106,9 +106,25 @@ export default function ArticleDetailPage({ articleId, onBack }: ArticleDetailPa
         <article className="max-w-4xl mx-auto">
           <Card className="p-8">
             <header className="mb-8">
+              {article.featuredImage && (
+                <div className="mb-8">
+                  <img
+                    src={article.featuredImage}
+                    alt={article.title}
+                    className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+                  />
+                </div>
+              )}
+              
               <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-6">
                 {article.title}
               </h1>
+              
+              {article.excerpt && (
+                <p className="text-lg text-gray-600 mb-6 italic border-l-4 border-blue-500 pl-4">
+                  {article.excerpt}
+                </p>
+              )}
               
               <div className="flex items-center space-x-6 text-sm text-gray-500 border-b border-gray-200 pb-6">
                 <div className="flex items-center space-x-2">
