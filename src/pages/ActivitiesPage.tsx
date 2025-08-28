@@ -77,10 +77,6 @@ export default function ActivitiesPage() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">2,500+</div>
-              <div className="text-gray-700">{t('activities.impact.trees')}</div>
-            </div>
-            <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
               <div className="text-gray-700">{t('activities.impact.people')}</div>
             </div>
