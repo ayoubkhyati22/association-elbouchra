@@ -102,36 +102,5 @@ function App() {
     </AuthProvider>
   );
 }
-      case 'admin':
-        return (
-          <AdminRoute>
-            <AdminDashboard />
-          </AdminRoute>
-        );
-      default:
-        return <HomePage onPageChange={handlePageChange} />;
-    }
-  };
-
-  return (
-    <div className="min-h-screen">
-      <Header currentPage={currentPage} onPageChange={handlePageChange} />
-      <main>
-        {renderPage()}
-      </main>
-      <Footer onPageChange={handlePageChange} />
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <AuthProvider>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
-    </AuthProvider>
-  );
-}
 
 export default App;
