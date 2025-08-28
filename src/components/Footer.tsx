@@ -51,6 +51,8 @@ export default function Footer({ onPageChange }: FooterProps) {
                   <a
                     key={index}
                     href={social.href}
+                   target="_blank"
+                   rel="noopener noreferrer"
                     className="w-10 h-10 bg-blue-800 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors duration-200"
                     aria-label={social.label}
                   >
