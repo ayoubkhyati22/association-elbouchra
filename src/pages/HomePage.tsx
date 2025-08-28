@@ -66,37 +66,35 @@ export default function HomePage({ onPageChange }: HomePageProps) {
 
       {/* President Message Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
           {/* President Message Card */}
-          <Card className="p-8 flex flex-col justify-center min-h-[400px]">
+          <Card className="p-8">
             <h2 className="text-3xl font-bold text-blue-900 mb-6">
               {t('home.president.title')}
             </h2>
-            <div className="flex-1 flex flex-col justify-center">
-              <p className="text-gray-700 leading-relaxed mb-4 text-justify whitespace-pre-line">
-                {showFullMessage ? presidentMessage : truncateText(presidentMessage, maxLength)}
+            <p className="text-gray-700 leading-relaxed mb-4 text-justify whitespace-pre-line">
+              {showFullMessage ? presidentMessage : truncateText(presidentMessage, maxLength)}
+            </p>
+            {presidentMessage.length > maxLength && (
+              <button
+                onClick={() => setShowFullMessage(!showFullMessage)}
+                className="text-blue-600 hover:text-blue-800 font-medium text-sm mb-4 text-left transition-colors duration-200"
+              >
+                {showFullMessage ? t('common.read-less') : t('common.read-more')}
+              </button>
+            )}
+            <div className="border-t border-gray-200 pt-4">
+              <p className="font-semibold text-blue-900">
+                {t('home.president.name')}
               </p>
-              {presidentMessage.length > maxLength && (
-                <button
-                  onClick={() => setShowFullMessage(!showFullMessage)}
-                  className="text-blue-600 hover:text-blue-800 font-medium text-sm mb-4 text-left transition-colors duration-200"
-                >
-                  {showFullMessage ? t('common.read-less') : t('common.read-more')}
-                </button>
-              )}
-              <div className="border-t border-gray-200 pt-4">
-                <p className="font-semibold text-blue-900">
-                  {t('home.president.name')}
-                </p>
-                <p className="text-blue-600 text-sm">
-                  {t('home.president.position')}
-                </p>
-              </div>
+              <p className="text-blue-600 text-sm">
+                {t('home.president.position')}
+              </p>
             </div>
           </Card>
 
           {/* President Image Card */}
-          <Card className="overflow-hidden min-h-[400px]">
+          <Card className="overflow-hidden h-[400px] lg:sticky lg:top-8">
             <div className="h-full">
               <img
                 src="/assets/mot-president.jpg"
