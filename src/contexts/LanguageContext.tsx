@@ -16,7 +16,7 @@ const translations = {
   fr: {
     // Navigation
     'nav.home': 'Accueil',
-    'nav.identification': 'Identification',
+    'nav.identification': 'À propos de nous',
     'nav.members': 'Membres',
     'nav.activities': 'Activités',
     'nav.membership': 'Adhésion',
@@ -91,7 +91,7 @@ const translations = {
     'footer.rights': 'Tous droits réservés',
 
     // Identification page
-    'identification.title': 'Identification de l\'Association',
+    'identification.title': 'À propos de nous',
     'identification.subtitle': 'Découvrez qui nous sommes et nos valeurs',
     'identification.vision.title': 'Notre Vision',
     'identification.vision.text': 'Créer un monde où le développement économique et social respecte l\'environnement et assure un avenir durable pour tous. Nous envisageons des communautés prospères qui vivent en harmonie avec la nature.',
@@ -150,7 +150,7 @@ const translations = {
   ar: {
     // Navigation
     'nav.home': 'الرئيسية',
-    'nav.identification': 'التعريف',
+    'nav.identification': 'من نحن',
     'nav.members': 'الأعضاء',
     'nav.activities': 'الأنشطة',
     'nav.membership': 'العضوية',
@@ -225,7 +225,7 @@ const translations = {
     'footer.rights': 'جميع الحقوق محفوظة',
 
     // Identification page
-    'identification.title': 'تعريف الجمعية',
+    'identification.title': 'من نحن',
     'identification.subtitle': 'اكتشف من نحن وقيمنا',
     'identification.vision.title': 'رؤيتنا',
     'identification.vision.text': 'خلق عالم حيث التنمية الاقتصادية والاجتماعية تحترم البيئة وتضمن مستقبلاً مستداماً للجميع. نتصور مجتمعات مزدهرة تعيش في انسجام مع الطبيعة.',
