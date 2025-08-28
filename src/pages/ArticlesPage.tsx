@@ -17,17 +17,31 @@ export default function ArticlesPage() {
 
   const fetchArticles = async () => {
     try {
-      // Récupérer tous les articles sans filtre pour éviter l'erreur 400
-      const q = query(collection(db, 'articles'));
-      const querySnapshot = await getDocs(q);
-      const articlesData = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      // Trier côté client si nécessaire
-      setArticles(articlesData.reverse()); // Les plus récents en premier
+      console.log('Fetching articles...');
+      const articlesCollection = collection(db, 'articles');
+      const querySnapshot = await getDocs(articlesCollection);
+      
+      if (querySnapshot.empty) {
+        console.log('No articles found');
+        setArticles([]);
+      } else {
+        const articlesData = querySnapshot.docs.map(doc => {
+          const data = doc.data();
+          console.log('Article data:', data);
+          return {
+            id: doc.id,
+            title: data.title || 'Titre non défini',
+            content: data.content || 'Contenu non défini',
+            ...data
+          };
+        });
+        setArticles(articlesData);
+        console.log('Articles loaded:', articlesData.length);
+      }
     } catch (error) {
       console.error('Error fetching articles:', error);
+      // En cas d'erreur, afficher un message à l'utilisateur
+      setArticles([]);
     } finally {
       setLoading(false);
     }
@@ -127,8 +141,8 @@ export default function ArticlesPage() {
               </p>
               <p className="text-sm">
                 {currentLanguage.code === 'fr'
-                  ? 'Revenez bientôt pour découvrir nos dernières actualités.'
-                  : 'عد قريباً لاكتشاف آخر أخبارنا.'
+                  ? 'Connectez-vous à l\'administration pour ajouter des articles.'
+                  : 'قم بتسجيل الدخول إلى الإدارة لإضافة مقالات.'
                 }
               </p>
             </div>

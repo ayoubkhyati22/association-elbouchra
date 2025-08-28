@@ -18,17 +18,30 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
 
   const fetchArticles = async () => {
     try {
-      // Récupérer tous les articles sans orderBy pour éviter l'erreur
-      const q = query(collection(db, 'articles'));
-      const querySnapshot = await getDocs(q);
-      const articlesData = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      // Trier côté client par ID (les plus récents en premier)
-      setArticles(articlesData.reverse());
+      console.log('Admin: Fetching articles...');
+      const articlesCollection = collection(db, 'articles');
+      const querySnapshot = await getDocs(articlesCollection);
+      
+      if (querySnapshot.empty) {
+        console.log('Admin: No articles found');
+        setArticles([]);
+      } else {
+        const articlesData = querySnapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            title: data.title || 'Titre non défini',
+            content: data.content || 'Contenu non défini',
+            ...data
+          };
+        });
+        setArticles(articlesData);
+        console.log('Admin: Articles loaded:', articlesData.length);
+      }
     } catch (error) {
-      console.error('Error fetching articles:', error);
+      console.error('Admin: Error fetching articles:', error);
+      alert('Erreur lors du chargement des articles. Vérifiez la console pour plus de détails.');
+      setArticles([]);
     } finally {
       setLoading(false);
     }

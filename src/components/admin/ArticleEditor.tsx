@@ -52,23 +52,29 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
 
     setLoading(true);
     try {
+      console.log('Saving article...', { title, contentLength: content.length });
+      
       const articleData = {
-        title: title,
+        title: title.trim(),
         content: content
       };
 
       if (article?.id) {
         // Update existing article
+        console.log('Updating article:', article.id);
         await updateDoc(doc(db, 'articles', article.id), articleData);
+        console.log('Article updated successfully');
       } else {
         // Create new article
+        console.log('Creating new article');
         await addDoc(collection(db, 'articles'), articleData);
+        console.log('Article created successfully');
       }
 
       onSave();
     } catch (error) {
       console.error('Error saving article:', error);
-      alert('Erreur lors de la sauvegarde de l\'article.');
+      alert('Erreur lors de la sauvegarde de l\'article: ' + error.message);
     } finally {
       setLoading(false);
     }
