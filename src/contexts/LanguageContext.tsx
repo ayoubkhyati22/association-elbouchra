@@ -298,7 +298,7 @@ Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
 
     // President message
     'home.president.title': 'كلمة الرئيس',
-'home.president.message': `كلمة ترحيب وشكر
+'home.president.message': `
 
 بســم الله الرحمــــن الرحيـــم
 
