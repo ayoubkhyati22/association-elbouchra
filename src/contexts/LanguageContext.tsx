@@ -140,7 +140,28 @@ const translations = {
 
     // President message
     'home.president.title': 'Mot du Président',
-    'home.president.message': 'Chers membres et amis de l\'association EL BOUCHRA, c\'est avec un immense plaisir que je vous accueille sur notre site web. Depuis notre création, nous nous sommes engagés à promouvoir le développement durable et à protéger notre environnement. Chaque action que nous menons, chaque projet que nous réalisons, contribue à construire un avenir plus vert pour nos enfants et les générations futures. Ensemble, nous pouvons faire la différence et créer un impact positif durable dans notre communauté.',
+'home.president.message': `Bienvenue et remerciements
+
+Au nom de Dieu, le Tout Miséricordieux, le Très Miséricordieux
+
+Que la paix et les bénédictions soient sur le plus honorable des prophètes et des messagers, ainsi que sur sa famille et ses compagnons.
+
+Monsieur le Directeur du Centre de Jeunesse, Hay Adel
+Monsieur le Président du Bureau National de l'Association El Bouchra pour le Développement Durable
+Mesdames et Messieurs,
+
+L'Association El Bouchra pour le Développement Durable - HAY ADIL -, est heureuse de vous accueillir en cette soirée du Ramadan. Je vous souhaite la bienvenue en mon nom personnel et au nom de tous mes collègues du Bureau Exécutif, de tous les membres et des bénévoles.
+À cette occasion, je tiens à exprimer mes plus sincères remerciements et ma gratitude à tous ceux qui ont contribué au succès des activités et des projets de l'Association et à la réalisation de ses nobles objectifs. Je tiens tout particulièrement à remercier les membres du Bureau Exécutif et les membres. Je voudrais également profiter de cette occasion pour remercier M. Abdellatif Marjani, directeur de l'Institut spécialisé de technologie appliquée de Polo, et M. Marzak, directeur du Complexe de formation professionnelle, pour leur aide et leur contribution au succès de cette soirée.
+
+Comme chacun le sait, HAY MOHAMMADI, avec ses spécificités culturelles, ses particularités géographiques et son patrimoine civilisationnel, a un besoin urgent d'une action communautaire solide et efficace visant à promouvoir son développement, à préserver ses atouts, à remédier à toutes les formes de fragilité sociale et d'appauvrissement environnemental, et à protéger le patrimoine écologique de la région, tout en s'efforçant d'étudier, de promouvoir et de mettre en valeur son authenticité, suscitant ainsi soutien et fierté.
+
+L'Association El Bouchra pour le Développement Durable - HAY ADIL -, fait partie des associations qui se sont engagées à accélérer le processus de développement, avec tous leurs efforts continus, leur profonde réflexion et leur grand enthousiasme, dans cette région imprégnée d'histoire et d'authenticité, mais ouverte aux valeurs de la modernité et de la contemporanéité.
+
+Ainsi, l'association met tout en œuvre pour mettre en œuvre ses programmes de développement, ses projets sociaux et environnementaux, ainsi que ses activités culturelles. Nous espérons bénéficier du soutien solide de nos partenaires financiers et d'un engagement actif auprès de la communauté afin que l'association puisse pleinement remplir sa mission.
+
+En conclusion, nous demandons à Dieu de nous aider à répondre aux attentes de chacun au service de la communauté.
+Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
+,
     'home.president.name': 'El FOUNDY Zakaria',
     'home.president.position': 'Président de l\'Association EL BOUCHRA',
 
