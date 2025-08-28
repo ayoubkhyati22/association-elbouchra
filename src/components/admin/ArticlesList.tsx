@@ -60,8 +60,10 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
   };
 
   const formatDate = (timestamp: any) => {
-    // Retourner une date par défaut puisque nous n'avons pas de timestamps
-    return 'Article';
+    if (timestamp) {
+      return timestamp;
+    }
+    return new Date().toLocaleDateString('fr-FR');
   };
 
   const truncateText = (text: string, maxLength: number) => {
@@ -147,7 +149,11 @@ export default function ArticlesList({ onEdit }: ArticlesListProps) {
                   <div className="flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
                       <User size={14} />
-                      <span>Association EL BOUCHRA</span>
+                      <span>{article.createdBy || 'Association EL BOUCHRA'}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <Calendar size={14} />
+                      <span>{formatDate(article.createdAt)}</span>
                     </div>
                   </div>
                 </div>

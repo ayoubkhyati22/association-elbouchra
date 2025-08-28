@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import { collection, addDoc, updateDoc, doc, serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../config/firebase';
+import { useAuth } from '../../contexts/AuthContext';
 import Card from '../Card';
 
 interface ArticleEditorProps {
@@ -17,6 +18,7 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     if (article) {
@@ -56,13 +58,18 @@ export default function ArticleEditor({ article, onSave, onCancel }: ArticleEdit
       
       const articleData = {
         title: title.trim(),
-        content: content
+        content: content,
+        createdAt: new Date().toLocaleDateString('fr-FR'),
+        createdBy: currentUser?.email || 'admin@elbouchra.org'
       };
 
       if (article?.id) {
         // Update existing article
         console.log('Updating article:', article.id);
-        await updateDoc(doc(db, 'articles', article.id), articleData);
+        await updateDoc(doc(db, 'articles', article.id), {
+          title: articleData.title,
+          content: articleData.content
+        });
         console.log('Article updated successfully');
       } else {
         // Create new article

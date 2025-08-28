@@ -48,7 +48,9 @@ export default function ArticlesPage() {
   };
 
   const formatDate = (timestamp: any) => {
-    // Retourner une date par défaut puisque nous n'avons pas de timestamps
+    if (timestamp) {
+      return timestamp;
+    }
     return currentLanguage.code === 'fr' ? 'Article récent' : 'مقال حديث';
   };
 
@@ -84,11 +86,11 @@ export default function ArticlesPage() {
                 <div className="flex items-center space-x-4 text-sm text-gray-500 border-b border-gray-200 pb-6">
                   <div className="flex items-center space-x-1">
                     <User size={16} />
-                    <span>Association EL BOUCHRA</span>
+                    <span>{selectedArticle.createdBy || 'Association EL BOUCHRA'}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Calendar size={16} />
-                    <span>{formatDate(selectedArticle)}</span>
+                    <span>{formatDate(selectedArticle.createdAt)}</span>
                   </div>
                 </div>
               </header>
@@ -167,7 +169,11 @@ export default function ArticlesPage() {
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <div className="flex items-center space-x-1">
                       <User size={14} />
-                      <span>Association EL BOUCHRA</span>
+                      <span>{article.createdBy || 'Association EL BOUCHRA'}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <Calendar size={14} />
+                      <span>{formatDate(article.createdAt)}</span>
                     </div>
                     <span className="text-blue-600 font-medium">
                       {currentLanguage.code === 'fr' ? 'Lire plus' : 'اقرأ المزيد'}
