@@ -55,9 +55,13 @@ export default function ArticlesPage() {
   };
 
   const truncateText = (text: string, maxLength: number) => {
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
+    if (!text) return text;
     return text.substring(0, maxLength) + '...';
+  };
+
+  const handleArticleClick = (articleId: string) => {
+    // Ouvrir dans un nouvel onglet
+    window.open(`/article/${articleId}`, '_blank');
   };
 
   const getArticleContent = (article: any, field: string) => {
@@ -86,12 +90,14 @@ export default function ArticlesPage() {
                 <div className="flex items-center space-x-4 text-sm text-gray-500 border-b border-gray-200 pb-6">
                   <div className="flex items-center space-x-1">
                     <User size={16} />
-                    <span>{selectedArticle.createdBy || 'Association EL BOUCHRA'}</span>
+                    <span>Association EL BOUCHRA</span>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <Calendar size={16} />
-                    <span>{formatDate(selectedArticle.createdAt)}</span>
-                  </div>
+                  {selectedArticle.createdAt && (
+                    <div className="flex items-center space-x-1">
+                      <Calendar size={16} />
+                      <span>{selectedArticle.createdAt}</span>
+                    </div>
+                  )}
                 </div>
               </header>
 
@@ -155,7 +161,7 @@ export default function ArticlesPage() {
               <Card 
                 key={article.id} 
                 className="overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
-                onClick={() => setSelectedArticle(article)}
+                onClick={() => handleArticleClick(article.id)}
               >
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-blue-900 mb-3 line-clamp-2">
@@ -167,14 +173,12 @@ export default function ArticlesPage() {
                   </div>
                   
                   <div className="flex items-center justify-between text-sm text-gray-500">
-                    <div className="flex items-center space-x-1">
-                      <User size={14} />
-                      <span>{article.createdBy || 'Association EL BOUCHRA'}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Calendar size={14} />
-                      <span>{formatDate(article.createdAt)}</span>
-                    </div>
+                    {article.createdAt && (
+                      <div className="flex items-center space-x-1">
+                        <Calendar size={14} />
+                        <span>{article.createdAt}</span>
+                      </div>
+                    )}
                     <span className="text-blue-600 font-medium">
                       {currentLanguage.code === 'fr' ? 'Lire plus' : 'اقرأ المزيد'}
                     </span>
