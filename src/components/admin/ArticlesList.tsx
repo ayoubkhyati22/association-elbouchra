@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Edit, Trash2, Eye, Calendar, User } from 'lucide-react';
+import { Edit, Trash2, Eye, Calendar, User, Plus } from 'lucide-react';
 import { collection, getDocs, deleteDoc, doc, orderBy, query } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import Card from '../Card';
