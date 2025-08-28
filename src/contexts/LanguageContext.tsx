@@ -25,7 +25,7 @@ const translations = {
     'nav.shop': 'Boutique',
 
     // Home page
-    'home.hero.title': 'Association EL BOUCHRA',
+    'home.hero.title': 'Association El Bouchra pour le développement durable -HAY ADIL-',
     'home.hero.subtitle': 'Vous Souhaite Le Bienvenue',
     'home.mission.title': 'Notre Mission',
     'home.mission.text': 'Promouvoir le développement durable et protéger notre environnement pour les générations futures.',
@@ -159,7 +159,7 @@ const translations = {
     'nav.shop': 'المتجر',
 
     // Home page
-    'home.hero.title': 'جمعية البشرى',
+    'home.hero.title': 'جمعية البشرى للتنمية المستدامة -فرع حي عادل-',
     'home.hero.subtitle': 'نرحب بكم',
     'home.mission.title': 'مهمتنا',
     'home.mission.text': 'تعزيز التنمية المستدامة وحماية بيئتنا للأجيال القادمة.',
