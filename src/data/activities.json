@@ -11,7 +11,8 @@
     },
     "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg",
     "icon": "Leaf",
-    "color": "green"
+    "color": "green",
+    "status": "active"
   },
   {
     "id": "recyclage",
@@ -25,7 +26,8 @@
     },
     "image": "https://images.pexels.com/photos/2990644/pexels-photo-2990644.jpeg",
     "icon": "Recycle",
-    "color": "blue"
+    "color": "blue",
+    "status": "active"
   },
   {
     "id": "education",
@@ -39,7 +41,8 @@
     },
     "image": "https://images.pexels.com/photos/8471947/pexels-photo-8471947.jpeg",
     "icon": "GraduationCap",
-    "color": "purple"
+    "color": "purple",
+    "status": "active"
   },
   {
     "id": "partenariats",
@@ -53,6 +56,82 @@
     },
     "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
     "icon": "Handshake",
-    "color": "orange"
+    "color": "orange",
+    "status": "active"
+  },
+  {
+    "id": "sensibilisation",
+    "title": {
+      "fr": "Campagnes de Sensibilisation",
+      "ar": "حملات التوعية"
+    },
+    "description": {
+      "fr": "Campagnes de sensibilisation aux enjeux environnementaux dans les médias et réseaux sociaux",
+      "ar": "حملات توعية بالقضايا البيئية في وسائل الإعلام والشبكات الاجتماعية"
+    },
+    "image": "https://images.pexels.com/photos/7551667/pexels-photo-7551667.jpeg",
+    "icon": "Megaphone",
+    "color": "red",
+    "status": "active"
+  },
+  {
+    "id": "nettoyage-plages",
+    "title": {
+      "fr": "Nettoyage des Plages",
+      "ar": "تنظيف الشواطئ"
+    },
+    "description": {
+      "fr": "Actions de nettoyage des plages et sensibilisation à la pollution marine",
+      "ar": "عمليات تنظيف الشواطئ والتوعية بالتلوث البحري"
+    },
+    "image": "https://images.pexels.com/photos/2547565/pexels-photo-2547565.jpeg",
+    "icon": "Waves",
+    "color": "cyan",
+    "status": "archived"
+  },
+  {
+    "id": "jardins-communautaires",
+    "title": {
+      "fr": "Jardins Communautaires",
+      "ar": "الحدائق المجتمعية"
+    },
+    "description": {
+      "fr": "Création et entretien de jardins communautaires pour promouvoir l'agriculture urbaine",
+      "ar": "إنشاء وصيانة الحدائق المجتمعية لتعزيز الزراعة الحضرية"
+    },
+    "image": "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg",
+    "icon": "Sprout",
+    "color": "emerald",
+    "status": "active"
+  },
+  {
+    "id": "energie-renouvelable",
+    "title": {
+      "fr": "Énergie Renouvelable",
+      "ar": "الطاقة المتجددة"
+    },
+    "description": {
+      "fr": "Promotion et installation de panneaux solaires dans les bâtiments publics",
+      "ar": "تعزيز وتركيب الألواح الشمسية في المباني العامة"
+    },
+    "image": "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg",
+    "icon": "Sun",
+    "color": "yellow",
+    "status": "archived"
+  },
+  {
+    "id": "compostage",
+    "title": {
+      "fr": "Programme de Compostage",
+      "ar": "برنامج التسميد"
+    },
+    "description": {
+      "fr": "Formation au compostage domestique et installation de bacs à compost collectifs",
+      "ar": "التدريب على التسميد المنزلي وتركيب صناديق السماد الجماعية"
+    },
+    "image": "https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg",
+    "icon": "Leaf",
+    "color": "amber",
+    "status": "archived"
   }
 ]
