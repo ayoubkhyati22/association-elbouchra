@@ -36,7 +36,7 @@ export default function Footer({ onPageChange }: FooterProps) {
               <img 
                 src="/assets/logo-ass.png" 
                 alt="Logo EL BOUCHRA" 
-                className="w-12 h-12 object-contain"
+                className="w-20 h-20 object-contain"
               />
             </div>
             <p className="text-blue-100 leading-relaxed mb-6">

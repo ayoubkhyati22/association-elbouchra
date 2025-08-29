@@ -97,9 +97,66 @@ const translations = {
     'identification.title': 'À propos de nous',
     'identification.subtitle': 'Découvrez qui nous sommes et nos valeurs',
     'identification.vision.title': 'Notre Vision',
-    'identification.vision.text': 'Créer un monde où le développement économique et social respecte l\'environnement et assure un avenir durable pour tous. Nous envisageons des communautés prospères qui vivent en harmonie avec la nature.',
+    'identification.vision.text': 'L’association EL BOUCHRA pour le développement durable œuvre activement à la promotion d’une société plus équitable et respectueuse de l’environnement, en plaçant les jeunes et les femmes au cœur de ses actions. Elle s’intéresse particulièrement aux problématiques liées à l’égalité des chances, à l’accès à la formation et au renforcement des compétences, afin de permettre aux jeunes et les femmes de devenir des actreurs du changement dans leurs communautés. À travers des ateliers, des programmes éducatifs et des initiatives de sensibilisation, l’association accompagne ces futures leaders à développer leurs savoirs, leurs capacités entrepreneuriales et leur conscience écologique, contribuant ainsi à un avenir plus durable et inclusif.',
     'identification.mission.title': 'Notre Mission',
-    'identification.mission.text': 'Promouvoir le développement durable à travers l\'éducation environnementale, les actions communautaires et la sensibilisation. Nous œuvrons pour protéger notre planète tout en améliorant la qualité de vie des populations locales.',
+    'identification.mission.text': `1. Éducation, formation et inclusion des enfants et des femmes
+
+    L'association se concentre sur la situation des enfants, des jeunes et des femmes, afin de protéger leurs familles et les institutions concernées.
+    
+    Contribuer aux programmes d'éducation de la petite enfance, de lutte contre l'analphabétisme, d'éducation informelle et de décrochage scolaire.
+    
+    Accompagner et soutenir les projets par des activités de formation, d'orientation et de financement pour la création d'entreprise.
+    
+    Créer et soutenir les projets d'entrepreneurs pour leurs enfants et à l'international.
+    
+    Contribuer à la formation et au développement du personnel de l'association, à l'adaptation à d'autres spécialistes et autres, au changement d'expérience et au développement des pratiques éducatives.
+
+    
+    2. Culture, art et créativité
+    
+    Activités culturelles, artistiques et sportives.
+    
+    Valoriser et valoriser les talents créés par les enfants, les adolescents et les jeunes adultes dans divers domaines.
+    
+    Organisateur de conférences et de formations.
+    
+    Collections, spectacles et festivals artistiques, culturels et sportifs.
+    
+    Organisateur d'activités éducatives, culturelles, artistiques et sociales.
+
+    
+    3. Personnel sportif et de développement
+    
+    Mentions légales : L’association s’engage à promouvoir la pratique de tous les sports et arts martiaux, dans le respect de la culture, des règles et des techniques du jeu.
+    
+    Développer les qualités physiques et morales de ses membres.
+    
+    Participer aux compétitions officielles et aux organisations académiques sur les marchés locaux, régionaux, nationaux et internationaux.
+
+    
+    4. Vie de l’association, partenaires et communication
+    
+    Créer un espace de communication entre les associations et les institutions partageant des objectifs communs.
+    
+    Elle s’associe à tous les secteurs publics et privés, institutions et associations, au niveau local, concernant les différentes activités de l’association.
+    
+    Contact : Abonnements automatisés pour les propositions, recherches et études relatives aux activités présentées par l’association.
+    
+    Publier des bulletins d’information, des magazines, des revues et des archives pour diverses activités.
+
+    
+    5. Voyages et voyages internationaux
+    
+    Organisateur de camps pour enfants, adolescents et jeunes adultes au Maroc et ailleurs.
+    
+    Superviseur de l’organisation de voyages d’exploration et de tourisme au Maroc et dans le pays.
+
+    
+    6. Développement territorial et social
+    
+    Contribuer au développement des zones rurales.
+    
+    L'association n'a aucun objet politique ou religieux.`,
     'identification.values.title': 'Nos Valeurs',
     'identification.values.environment.title': 'Respect de l\'environnement',
     'identification.values.environment.text': 'Protection et préservation de notre écosystème',
@@ -148,7 +205,7 @@ const translations = {
 
     // President message
     'home.president.title': 'Mot du Président',
-'home.president.message': `
+    'home.president.message': `
 Au nom de Dieu, le Tout Miséricordieux, le Très Miséricordieux
 
 Que la paix et les bénédictions soient sur le plus honorable des prophètes et des messagers, ainsi que sur sa famille et ses compagnons.
@@ -168,7 +225,7 @@ Ainsi, l'association met tout en œuvre pour mettre en œuvre ses programmes de 
 
 En conclusion, nous demandons à Dieu de nous aider à répondre aux attentes de chacun au service de la communauté.
 Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
-,
+    ,
     'home.president.name': 'El FOUNDY Zakaria',
     'home.president.position': 'Président de l\'Association',
 
@@ -354,9 +411,61 @@ Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
     'identification.title': 'من نحن',
     'identification.subtitle': 'اكتشف من نحن وقيمنا',
     'identification.vision.title': 'رؤيتنا',
-    'identification.vision.text': 'خلق عالم حيث التنمية الاقتصادية والاجتماعية تحترم البيئة وتضمن مستقبلاً مستداماً للجميع. نتصور مجتمعات مزدهرة تعيش في انسجام مع الطبيعة.',
+    'identification.vision.text': 'تسعى جمعية البشرى للتنمية المستدامة جاهدةً إلى بناء مجتمع أكثر إنصافًا وصديقًا للبيئة، واضعةً الشباب والنساء في صميم أنشطتها. وتهتم الجمعية بشكل خاص بقضايا تكافؤ الفرص، والحصول على التدريب، وتنمية المهارات، لتمكين الشباب والنساء من أن يصبحوا فاعلين في التغيير في مجتمعاتهم. ومن خلال ورش العمل والبرامج التعليمية ومبادرات التوعية، تدعم الجمعية هؤلاء القادة المستقبليين في تطوير معارفهم ومهاراتهم الريادية ووعيهم البيئي، مما يُسهم في بناء مستقبل أكثر استدامةً وشمولية.',
     'identification.mission.title': 'مهمتنا',
-    'identification.mission.text': 'تعزيز التنمية المستدامة من خلال التعليم البيئي والأعمال المجتمعية والتوعية. نعمل على حماية كوكبنا مع تحسين نوعية حياة السكان المحليين.',
+    'identification.mission.text': `١. تعليم وتدريب وإدماج الأطفال والنساء
+
+    تركز الجمعية على وضع الأطفال والشباب والنساء، بهدف حماية أسرهم والمؤسسات المعنية.
+    
+    تساهم في برامج تعليم الطفولة المبكرة، ومكافحة الأمية، والتعليم غير النظامي، والتسرب المدرسي.
+    
+    تدعم المشاريع وتدعمها من خلال التدريب والتوجيه وتمويل إنشاء المشاريع.
+    
+    تنشئ وتدعم مشاريع رواد الأعمال لأطفالهم وعلى الصعيد الدولي.
+    
+    تساهم في تدريب وتطوير موظفي الجمعية، وتأهيلهم للعمل مع المتخصصين وغيرهم، وتبادل الخبرات، وتطوير الممارسات التربوية.
+    
+    ٢. الثقافة والفنون والإبداع
+    
+    الأنشطة الثقافية والفنية والرياضية.
+    
+    تشجع وتدعم مواهب الأطفال والمراهقين والشباب في مختلف المجالات.
+    
+    تنظم المؤتمرات والدورات التدريبية.
+    
+    تقيم مجموعات فنية، وتقيم معارض، وتنظم مهرجانات فنية وثقافية ورياضية.
+    
+    تنظم أنشطة تربوية وثقافية وفنية واجتماعية.
+    
+    ٣. فريق الرياضة والتنمية
+    
+    الإشعارات القانونية: تلتزم الجمعية بتعزيز ممارسة جميع أنواع الرياضات وفنون القتال، مع احترام ثقافة اللعبة وقواعدها وتقنياتها.
+    
+    تنمية القدرات البدنية والأخلاقية لأعضائها.
+    
+    المشاركة في المسابقات الرسمية والهيئات الأكاديمية في الأسواق المحلية والإقليمية والوطنية والدولية.
+    
+    ٤. حياة الجمعية، الشركاء، والتواصل
+    
+    خلق مساحة للتواصل بين الجمعيات والمؤسسات ذات الأهداف المشتركة.
+    
+    الشراكة مع جميع القطاعات العامة والخاصة والمؤسسات والجمعيات على المستوى المحلي فيما يتعلق بأنشطة الجمعية المختلفة.
+    
+    للتواصل: اشتراكات آلية للمقترحات والبحوث والدراسات المتعلقة بأنشطة الجمعية.
+    
+    إصدار النشرات الإخبارية والمجلات والدوريات والأرشيفات لمختلف الأنشطة.
+    
+    ٥. السفر والرحلات الدولية
+    
+    تنظيم مخيمات للأطفال والمراهقين والشباب في المغرب وخارجه.
+    
+    الإشراف على تنظيم رحلات استكشافية وسياحية في المغرب والبلاد.
+    
+    ٦. التنمية الإقليمية والاجتماعية
+    
+    تساهم في تنمية المناطق الريفية.
+    
+    ليس للجمعية أي أهداف سياسية أو دينية.`,
     'identification.values.title': 'قيمنا',
     'identification.values.environment.title': 'احترام البيئة',
     'identification.values.environment.text': 'حماية والحفاظ على النظام البيئي',
@@ -405,7 +514,7 @@ Que la paix, la miséricorde et les bénédictions de Dieu soient sur vous.`
 
     // President message
     'home.president.title': 'كلمة الرئيس',
-'home.president.message': `
+    'home.president.message': `
 بســم الله الرحمــــن الرحيـــم
 
 والصلاة والسلام على أشرف الأنبياء والمرسلين وعلى آله وصحبه أجمعين وبعد.

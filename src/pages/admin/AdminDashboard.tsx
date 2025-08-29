@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { LogOut, FileText, Plus, Users, Activity, Calendar, ShoppingCart, UserCheck, BarChart3, Download, Eye as EyeIcon, FileText as ArticleIcon, Menu, X } from 'lucide-react';
+import { useState } from 'react';
+import { LogOut, FileText, Plus, Users, Activity, Calendar, ShoppingCart, UserCheck, Download, Eye as EyeIcon, FileText as ArticleIcon, Menu, X } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Card from '../../components/Card';
 import ArticleEditor from '../../components/admin/ArticleEditor';
 import ArticlesList from '../../components/admin/ArticlesList';
+import teamMembersData from '../../data/teamMembers.json';
+import activitiesData from '../../data/activities.json';
 
 type AdminView = 'dashboard' | 'articles' | 'editor' | 'edit';
 
@@ -57,7 +59,7 @@ export default function AdminDashboard() {
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Activity className="text-blue-600" size={20} />
                   </div>
-                  <div className="text-2xl font-bold text-blue-900 mb-1">25</div>
+                  <div className="text-2xl font-bold text-blue-900 mb-1">{activitiesData.length}</div>
                   <div className="text-sm text-gray-600">{t('admin.dashboard.total-activities')}</div>
                 </Card>
                 
@@ -65,7 +67,7 @@ export default function AdminDashboard() {
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <ArticleIcon className="text-green-600" size={20} />
                   </div>
-                  <div className="text-2xl font-bold text-blue-900 mb-1">12</div>
+                  <div className="text-2xl font-bold text-blue-900 mb-1">0</div>
                   <div className="text-sm text-gray-600">{t('admin.dashboard.total-articles')}</div>
                 </Card>
                 
@@ -73,23 +75,23 @@ export default function AdminDashboard() {
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Users className="text-purple-600" size={20} />
                   </div>
-                  <div className="text-2xl font-bold text-blue-900 mb-1">150</div>
+                  <div className="text-2xl font-bold text-blue-900 mb-1">{teamMembersData.length}</div>
                   <div className="text-sm text-gray-600">{t('admin.dashboard.total-members')}</div>
                 </Card>
                 
-                <Card className="p-4 text-center">
+                <Card className="p-4 text-center opacity-50 pointer-events-none bg-gray-100">
                   <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Download className="text-orange-600" size={20} />
                   </div>
-                  <div className="text-2xl font-bold text-blue-900 mb-1">89</div>
+                  <div className="text-2xl font-bold text-blue-900 mb-1">0</div>
                   <div className="text-sm text-gray-600">{t('admin.dashboard.pdf-downloads')}</div>
                 </Card>
                 
-                <Card className="p-4 text-center">
+                <Card className="p-4 text-center opacity-50 pointer-events-none bg-gray-100">
                   <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <EyeIcon className="text-red-600" size={20} />
                   </div>
-                  <div className="text-2xl font-bold text-blue-900 mb-1">2,547</div>
+                  <div className="text-2xl font-bold text-blue-900 mb-1">0</div>
                   <div className="text-sm text-gray-600">{t('admin.dashboard.site-visitors')}</div>
                 </Card>
               </div>

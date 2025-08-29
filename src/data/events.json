@@ -1,70 +1,121 @@
 [
   {
-    "id": "plantation-arbres",
+    "id": "ouverture-saison-anniversaire",
     "title": {
-      "fr": "Plantation d'arbres communautaire",
-      "ar": "زراعة الأشجار المجتمعية"
+      "fr": "Cérémonie d'ouverture de la saison et anniversaire de l'association",
+      "ar": "حفل افتتاح الموسم و عيد ميلاد الجمعية"
     },
-    "date": "2025-03-15",
-    "time": "09:00",
+    "date": "2025-11-01",
+    "time": "19:00",
     "location": {
-      "fr": "Parc Municipal",
-      "ar": "الحديقة البلدية"
+      "fr": "Siège de l'association",
+      "ar": "مقر الجمعية"
     },
     "description": {
-      "fr": "Journée de plantation avec les familles locales",
-      "ar": "يوم زراعة مع العائلات المحلية"
+      "fr": "Célébration du lancement de la nouvelle saison et de l'anniversaire de l'association",
+      "ar": "احتفال بإطلاق الموسم الجديد وذكرى تأسيس الجمعية"
     }
   },
   {
-    "id": "nettoyage-plages",
+    "id": "tournoi-independance",
     "title": {
-      "fr": "Nettoyage des plages",
-      "ar": "تنظيف الشواطئ"
+      "fr": "Tournoi de l'Indépendance",
+      "ar": "دوري عيد الاستقلال"
     },
-    "date": "2025-04-22",
-    "time": "08:00",
+    "date": "2025-11-18",
+    "time": "15:00",
     "location": {
-      "fr": "Plage de Rabat",
-      "ar": "شاطئ الرباط"
+      "fr": "Terrain de sport local",
+      "ar": "الملعب الرياضي المحلي"
     },
     "description": {
-      "fr": "Action de nettoyage pour la Journée de la Terre",
-      "ar": "عمل تنظيف ليوم الأرض"
+      "fr": "Tournoi sportif en l'honneur de l'indépendance du Maroc",
+      "ar": "بطولة رياضية تكريماً لاستقلال المغرب"
     }
   },
   {
-    "id": "formation-eco",
+    "id": "voyage-ifrane",
     "title": {
-      "fr": "Formation éco-responsable",
-      "ar": "تدريب صديق للبيئة"
+      "fr": "Voyage récréatif à Ifrane",
+      "ar": "رحلة ترفيهية إفران"
     },
-    "date": "2025-05-10",
+    "date": "2026-01-15",
+    "time": "07:00",
+    "location": {
+      "fr": "Ifrane",
+      "ar": "إفران"
+    },
+    "description": {
+      "fr": "Voyage récréatif et découverte de la région d'Ifrane",
+      "ar": "رحلة ترفيهية واستكشافية لمنطقة إفران"
+    }
+  },
+  {
+    "id": "paniers-ramadan",
+    "title": {
+      "fr": "Campagne de distribution de paniers du Ramadan 1447 de l'Hégire",
+      "ar": "حملة توزيع قفف رمضان 1447ه"
+    },
+    "date": "2026-02-20",
+    "time": "16:00",
+    "location": {
+      "fr": "Quartiers défavorisés",
+      "ar": "الأحياء المحتاجة"
+    },
+    "description": {
+      "fr": "Distribution de paniers alimentaires aux familles nécessiteuses",
+      "ar": "توزيع السلل الغذائية على العائلات المحتاجة"
+    }
+  },
+  {
+    "id": "soiree-ramadan-femme",
+    "title": {
+      "fr": "Soirée du Ramadan + Journée internationale de la femme",
+      "ar": "أمسية رمضانية + الاحتفال باليوم العالمي للمرأة"
+    },
+    "date": "2026-03-08",
+    "time": "20:00",
+    "location": {
+      "fr": "Salle des fêtes",
+      "ar": "قاعة الحفلات"
+    },
+    "description": {
+      "fr": "Soirée culturelle célébrant le Ramadan et la Journée internationale de la femme",
+      "ar": "أمسية ثقافية احتفالاً برمضان واليوم العالمي للمرأة"
+    }
+  },
+  {
+    "id": "gala-traditionnel",
+    "title": {
+      "fr": "Soirée Traditionnelle (GALA)",
+      "ar": "سهرة فنية"
+    },
+    "date": "2026-04-12",
+    "time": "19:30",
+    "location": {
+      "fr": "Palais des Congrès",
+      "ar": "قصر المؤتمرات"
+    },
+    "description": {
+      "fr": "Gala traditionnel avec spectacles artistiques et culturels",
+      "ar": "حفل تقليدي مع عروض فنية وثقافية"
+    }
+  },
+  {
+    "id": "tournoi-moulay-hassan",
+    "title": {
+      "fr": "Tournoi Moulay Hassan",
+      "ar": "دوري مولاي الحسن"
+    },
+    "date": "2026-05-08",
     "time": "14:00",
     "location": {
-      "fr": "Centre Culturel",
-      "ar": "المركز الثقافي"
+      "fr": "Complexe sportif",
+      "ar": "المجمع الرياضي"
     },
     "description": {
-      "fr": "Atelier sur les pratiques durables au quotidien",
-      "ar": "ورشة حول الممارسات المستدامة اليومية"
-    }
-  },
-  {
-    "id": "marche-bio",
-    "title": {
-      "fr": "Marché bio solidaire",
-      "ar": "السوق البيولوجي التضامني"
-    },
-    "date": "2025-06-05",
-    "time": "10:00",
-    "location": {
-      "fr": "Place Centrale",
-      "ar": "الساحة المركزية"
-    },
-    "description": {
-      "fr": "Marché des producteurs locaux et biologiques",
-      "ar": "سوق المنتجين المحليين والبيولوجيين"
+      "fr": "Tournoi sportif annuel Moulay Hassan",
+      "ar": "البطولة الرياضية السنوية مولاي الحسن"
     }
   }
 ]
