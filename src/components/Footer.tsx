@@ -18,7 +18,9 @@ export default function Footer({ onPageChange }: FooterProps) {
     { key: 'home', href: 'home' },
     { key: 'identification', href: 'identification' },
     { key: 'activities', href: 'activities' },
-    { key: 'membership', href: 'membership' }
+    { key: 'membership', href: 'membership' },
+    { key: 'articles', href: 'articles' },
+    { key: 'admin', href: 'admin' },
   ];
 
   const handleLinkClick = (href: string) => {
